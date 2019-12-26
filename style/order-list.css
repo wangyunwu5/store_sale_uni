@@ -1,0 +1,138 @@
+page{
+
+}
+.nav{
+	position: fixed;
+	padding: 0 40upx 0 40upx;
+	width:670upx;
+	height:80upx;
+	background-color: white;
+	border-top:1upx solid #dddddd;
+	border-bottom: 1upx solid #dddddd;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	z-index: 10;
+}
+.nav-item{
+	float:left;
+	width:120upx;
+	height:80upx;
+	line-height: 80upx;
+	text-align: center;
+	font-size: 29upx;
+	color:#999999;
+}
+.active{
+	color:black;
+	height:76upx;
+	border-bottom: 5upx solid black;
+}
+.noorder{
+	width: 750upx;
+	text-align: center;
+	line-height: 800upx;
+	color:#999999;
+	font-size: 28upx;
+}
+.order-list{
+	padding-top:80upx
+}
+.order
+{
+	width:750upx;
+	min-height: 200upx;
+	font-size: 29upx;
+	color:#333333;
+	border-bottom: 1upx solid #F7F7F7;
+	margin-bottom: 10upx;
+	position: relative;
+}
+.refunds{
+	position: absolute;
+	right:35upx;
+	top:100upx;
+	color:red;
+	z-index:30;
+}
+.order-title,.order-goods{
+	width: 690upx;
+	padding: 0 30upx;
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height:80upx;
+}
+.refunds{
+	position: absolute;
+	right:35upx;
+	top:100upx;
+	color:red;
+	z-index:30;
+}
+.date{
+	font-size:26upx;
+	color:#999999;
+}
+.status{
+	color:#81DFD5;
+	color: #B59F78;
+}
+.price{
+	color:#FA7834;
+}
+.order-goods{
+	min-height: 210upx;
+	position: relative;
+}
+.order-goods:after{
+	position: absolute;
+	content: '';
+	width:690upx;
+	height:1upx;
+	bottom:1upx;
+	left:30upx;
+	background-color: #cccccc
+}
+.image{
+	width:170upx;
+	height:170upx;
+	margin:20upx;
+}
+.goods-info{
+	width:500upx;
+	min-height: 210upx;
+}
+.goods-name,.goods-parm,.goods-price{
+	width:500upx;
+	min-height: 70upx;
+}
+.goods-name,.goods-price{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.goods-name{
+	height:60upx;
+}
+.goods-parm{
+	color:#999999;
+}
+.express{
+	background-color: #FA7834; 
+	color:white;
+	padding:5upx 20upx;
+	border-radius: 50upx;
+	font-size:26upx;
+}
+.sendout{
+	background-color: #B59F78; 
+	color:white;
+	width:108upx;
+	padding:5upx 20upx;
+	border-radius: 50upx;
+	font-size:26upx;
+	text-align: center;
+}

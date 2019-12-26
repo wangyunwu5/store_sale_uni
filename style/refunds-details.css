@@ -1,0 +1,132 @@
+page{
+	background-color: white;
+}
+.head,.user-info{
+	padding:0 30upx;
+	width:690upx;
+	height:200upx;
+	background-color: #B59F78;
+	color:white;
+	display: flex;
+	justify-content: flex-start;
+	align-items:center
+}
+.head{
+	width:660upx;
+	padding-right: 60upx;
+	justify-content: space-between;
+}
+.head > image{
+	width:120upx;
+	height:120upx;
+}
+.user-info{
+	width:690upx;
+	padding:20upx 30upx;
+	font-size: 30upx;
+	height:110upx;
+	background-color: white;
+	color:#222222;
+	flex-wrap: wrap;
+}
+.user-info > view{
+	width:690upx
+}
+.goods,.order-info,.bottom{
+	width:690upx;
+	padding:0 30upx;
+	min-height:200upx;
+}
+.goods-info{
+	width:690upx;
+	background-color: #f7f7f7;
+	min-height:210upx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20upx;
+	margin-top:10upx;
+}
+.image{
+	width:170upx;
+	height:170upx;
+	margin:20upx;
+}
+.parm{
+	width:480upx;
+	min-height: 210upx;
+}
+.price{
+	color:#FA7834;
+}
+.goods-name,.goods-parm,.goods-price{
+	width:460upx;
+	min-height: 70upx;
+}
+.goods-name,.goods-price{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 30upx;
+}
+.goods-name{
+	height:60upx;
+	font-size: 32upx;
+}
+.goods-parm{
+	color:#999999;
+	font-size: 30upx;
+}
+.goods-price{
+	font-size:28upx;
+}
+.num{
+	font-size: 26upx;
+	color:#999999;
+}
+.order-info{
+	margin-top:20upx;
+	padding-bottom: 100upx;
+}
+.order-info > view{
+	width:690upx;
+	font-size:30upx;
+	color:#999999;
+	padding:5upx 0;
+}
+.express{
+	width:100upx;
+	background-color: #FA7834; 
+	color:white;
+	padding:8upx 20upx;
+	border-radius: 50upx;
+	font-size:26upx;
+	margin-left: 10upx;
+}
+.btnCancel{
+	position: fixed;
+	width:375upx;
+	height:90upx;
+	left:0;
+	bottom:0;
+	color:black;
+	z-index:10;
+	text-align: center;
+	line-height: 90upx;
+	font-size: 34upx;
+	border-top:1upx solid #eeeeee;
+}
+.btnConfirm{
+	position: fixed;
+	width:375upx;
+	height:90upx;
+	right:0;
+	bottom:0;
+	color:white;
+	background-color: #F97834;
+	z-index:10;
+	text-align: center;
+	line-height: 90upx;
+	font-size: 34upx;
+	border-top:1upx solid #eeeeee;
+}

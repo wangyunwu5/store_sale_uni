@@ -1,0 +1,132 @@
+page{
+	display: block;
+}
+.nav{
+	position: fixed;
+	padding: 0 60rpx 0 60rpx;
+	width:630rpx;
+	height:85rpx;
+	background-color: white;
+	border-top:1rpx solid #dddddd;
+	border-bottom: 1rpx solid #dddddd;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	z-index: 999;
+}
+.nav-item{
+	float:left;
+	width:120rpx;
+	height:85rpx;
+	line-height: 85rpx;
+	text-align: center;
+	font-size: 29rpx;
+	color:#999999;
+}
+.active{
+	color:black;
+	height:79rpx;
+	border-bottom: 7rpx solid black;
+}
+.nav > image{
+	position: absolute;
+	width:20rpx;
+	height:20rpx;
+	left:150rpx;
+	top:30rpx;
+}
+.goods{
+	position: absolute;
+	top:84rpx;
+	padding-top: 30rpx;
+	left:0;
+	right:0;
+	min-height:10rpx !important;
+	background-color: white;
+	/*top:120upx;
+	margin-top:120upx;
+	width:750upx;
+	padding-top:120upx;
+	min-height:300upx !important;
+	background-color: white;
+	margin-bottom: 10upx;*/
+}
+.goods-list{
+	background-color: white;
+	width:690rpx;
+	margin-left:30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	text-indent:0;
+}
+.goods-item{
+	width:330rpx;
+	min-height:10rpx;
+	margin-bottom: 20rpx;
+}
+.goods-item > image{
+	width:330rpx;
+	height:330rpx;
+	display: block;
+	margin-bottom: 20rpx;
+}
+.goods-name{
+	width:330rpx;
+	font-size:29rpx;
+	margin-bottom: 10rpx;
+}
+.goods-price{
+	width:330rpx;
+	font-size:30rpx;
+	color:#F83417 !important;
+	margin-bottom: 20rpx;
+}
+.end{
+	width:750rpx;
+	height:80rpx;
+	margin:0 auto;
+	text-align: center;
+	line-height: 80rpx;
+	background-color: #F8F8F8;
+	color:#dddddd;
+	font-size:25rpx;
+	position: relative;
+}
+.end:before{
+	position: absolute;
+	width:50rpx;
+	height:1rpx;
+	background-color: #dddddd;
+	content: '';
+	left:35%;
+	top:40rpx;
+}
+.end:after{
+	position: absolute;
+	width:50rpx;
+	height:1rpx;
+	background-color: #dddddd;
+	content: '';
+	right:35%;
+	top:40rpx;
+}
+

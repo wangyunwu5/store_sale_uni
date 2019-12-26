@@ -1,0 +1,212 @@
+.top{
+	width:750upx;
+	height:700upx;
+	border-bottom: 1upx solid #cccccc;
+}
+.top-img{
+	width:100%;
+	height:100%;
+}
+.price{
+	width:750upx;
+	height:200upx;
+	background-color: white;
+	position: relative;
+}
+.uni-list-cell:before{
+	content: '';
+	position: absolute;
+	width:5upx;
+	height:30upx;
+	left:30upx;
+	top:48upx;
+	background-color: black;
+}
+.uni-list-cell:after{
+	background-color: white;
+}
+.uni-list-cell-navigate{
+	padding:40upx 45upx !important;
+	color:black !important;
+	font-weight: bold;
+}
+.goods-name{
+	position: absolute;
+	top:40upx;
+	left:30upx;
+	font-size: 38upx;
+	font-weight: bold;
+	color:#333333;
+}
+.goods-price{
+	position: absolute;
+	top:110upx;
+	left:30upx;
+	color:#FA7834;
+	font-size:40upx;
+}
+.goods-details{
+	margin-top:20upx;
+	background-color: white;
+	padding-bottom: 30upx;
+	width:750upx;
+	min-height: 200upx !important;
+}
+.pd{
+	margin-bottom: 100upx;
+}
+.parm{
+	width:690upx;
+	height:60upx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size:30upx;
+}
+.details-image{
+	width:750upx;
+}
+.bottom{
+	width:100%;
+	height:100upx;
+	background-color: white;
+	position: fixed;
+	bottom:0;
+	border-top:1upx solid #eeeeee;
+	z-index: 100;
+	display: flex;
+	justify-content: space-between;
+}
+.chakan,.bianji,.shanchu{
+	width:250upx;
+	height:100upx;
+	text-align: center;
+	color:black;
+	line-height: 100upx;
+	border-right: 1upx solid #eeeeee;
+}
+.sheet{
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color: rgba(0,0,0,0.2);
+	z-index: 200;
+}
+.sheet-content{
+	position: fixed;
+	width:750upx;
+	bottom:0upx;
+	min-height: 320upx;
+	background-color: white;
+	z-index:300;
+	padding-top:30upx;
+}
+.sheet-top{
+	width:680upx;
+	height:152upx;
+	border-bottom: 1upx solid #eeeeee;
+	position: relative;
+	margin-left:40upx;
+}
+.sheet-top > image{
+	position: absolute;
+	width:120upx;
+	height:120upx;
+	left:0;
+	top:0;
+	border:1upx solid #cccccc;
+}
+.sheet-parm{
+	width:690upx;
+	margin-left:30upx;
+	padding-bottom:40upx;
+}
+.sheet-goodsname{
+	position: absolute;
+	top:5upx;
+	left:145upx;
+	font-size:28upx;
+}
+.sheet-goodsprice{
+	position: absolute;
+	top:50upx;
+	left:145upx;
+	font-size:28upx;
+	color:#FF9A00;
+}
+.sheet-class{
+	width:680upx;
+	min-height:130upx !important;
+	padding-bottom: 35upx;
+	border-bottom: 1upx solid #eeeeee;
+	position: relative;
+	margin-left:40upx;
+}
+.sheet-class-name{
+	width:690upx;
+	height:90upx;
+	line-height: 100upx;
+	font-size:30upx;
+}
+.sheet-class-list{
+	width:690upx;
+	min-height:50upx;
+	line-height: 38upx;
+	display:flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.sheet-class-list-item{
+	padding:8upx 30upx;
+	font-size:25upx;
+	text-align:center;
+	min-width: 50upx;
+	margin: 10upx 25upx 10upx 0;
+	background-color: #F7F7F7;
+}
+.active{
+	background-Color:#F97834;
+	color:white;
+}
+.ishide{
+	color:#cccccc;
+}
+.active2{
+	background-Color:#FF9A00;
+	color:black;
+}
+.active3{
+	background-Color:#FF9A00;
+	color:red;
+}
+.sheet-num{
+	width:680upx;
+	height:100upx !important;
+	line-height: 80upx;
+	position: relative;
+	margin-left:40upx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.sheet-num > label{
+	font-size:28upx;
+}
+.overnum{
+	position: absolute;
+	left:80upx;
+	color:#bbbbbb;
+}
+.button{
+	width:750upx;
+	background-color: #F7F7F7;
+	height:100upx;
+	text-align: center;
+	line-height: 100upx;
+	font-size: 32upx;
+	color:#bbbbbb;
+}
+

@@ -1,0 +1,141 @@
+page{
+	background-color: white;
+	display: flex;
+}
+.list{
+	width:750upx;
+	min-height:10upx;
+	padding-top:50upx;
+	position: absolute;
+}
+.list-input{
+	background-color: white;
+	min-height: 30upx;
+	padding:0 60upx;
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+}
+.input{
+	border-bottom:1upx solid #dddddd;
+	border-radius: 5upx;
+	height:80upx;
+	width:630upx;
+}
+.short-input,.long-input,.long-input2{
+	border-bottom:1upx solid #dddddd;
+	border-radius: 5upx;
+	height:80upx;
+	width:120upx;
+	line-height: 80upx;
+}
+.long-input{
+	width:500upx;
+}
+.long-input2{
+	width:350upx;	
+}
+.button1,.button2{
+	width:300upx;
+	height:80upx;
+	line-height: 80upx;
+	text-align: center;
+	border:1upx solid #dddddd;
+	color:#999999;
+	font-size: 30upx;
+	border-radius: 15upx;
+	margin-top:20upx;
+}
+.button2{
+	width:630upx;
+}
+.up{
+	height:90upx;
+	line-height: 90upx;
+	background-color: #B59F78;
+	color:white; 
+	margin-bottom:100upx;
+}
+.title{
+	height:80upx;
+	line-height: 80upx;
+	color:#333333;
+	width:690upx;
+	margin-left:60upx;
+}
+.picture{
+	width:650upx;
+	margin-left:60upx;
+	padding:0upx 20upx 30upx 0upx !important;
+	min-height: 100upx !important;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/*justify-content: space-between;*/
+}
+.picture-add{
+	width:192upx;
+	height:192upx;
+	border:1upx dashed #cccccc;
+	display: block;
+	margin-top:20upx;
+	position: relative;
+	padding: 0 !important;
+}
+.picture-add:before{
+	position: absolute;
+	top:96upx;
+	left:0;
+	margin-left:46upx;
+	width:100upx;
+	content: "";
+	height:2upx;
+	background-color: #CCCCCC;
+}
+.picture-add:after{
+	position: absolute;
+	top:0;
+	left:96upx;
+	margin-top:46upx;
+	height:100upx;
+	content: "";
+	width:1upx;
+	background-color: #CCCCCC;
+}
+.imagefile{
+	width:192upx;
+	margin-top:20upx;
+	padding: 0 !important;
+	border:none;
+	height:192upx;
+	margin-right: 20upx;
+	position: relative;
+}
+.image{
+	max-width:192upx;
+	height:192upx;
+	margin: 0 !important;
+	margin-top:20upx;
+	border:1upx solid #cccccc;
+}
+.remove{
+	position: absolute;
+	width:35upx;
+	height:35upx;
+	background-color:rgba(0,0,0,0.5);
+	right:0;
+	top:0;
+}
+.remove:before,.remove:after{
+	position: absolute;
+	height:20upx;
+	width:1upx;
+	background-color: #EFEFF4;
+	left:18upx;
+	top:7upx;
+	content: "";
+	transform:rotate(45deg);
+}
+.remove:after{
+	transform:rotate(-45deg);
+}

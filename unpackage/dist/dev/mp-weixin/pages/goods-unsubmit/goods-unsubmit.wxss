@@ -1,0 +1,14 @@
+
+.list{
+	width: 750rpx;
+	height:120rpx;
+	margin-bottom: 10rpx;
+	background-color: white;
+}
+.goods-name,.goods-type{
+	text-indent: 40rpx;
+	width:750rpx;
+	height:60rpx;
+	line-height: 60rpx;
+}
+

@@ -1,1 +1,0 @@
-<view><block wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['navigate',['$0'],[[['data','',index,'goodsID']]]]]]]}}" class="list" bindtap="__e"><view class="goods-name">{{"商品名:"+item.goodsName}}</view><view class="goods-type">{{"类别:"+item.goodsType}}</view></view></block></view>

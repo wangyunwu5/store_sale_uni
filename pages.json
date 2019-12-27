@@ -1,7 +1,11 @@
 {
     "pages": [ //pages数组中第一项表示应用启动页,
-        
-		{
+        {
+        	"path":"pages/order/order-list",
+        	"style":{
+        		"navigationBarTitleText":"订单管理"
+        	}
+        },{
 		    "path": "pages/main/main",
 		    "style": {
 		        "navigationBarTitleText": "",
@@ -29,86 +33,6 @@
             "style": {
                 "navigationBarTitleText": "我的"
             }
-        }, {
-            "path": "pages/express/express",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-add/add1/add1",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-add/add2/add2",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-add/add3/add3",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-add/add4/add4",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-details/goods-details",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-list/goods-list",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-list2/goods-list2",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-unsubmit/goods-unsubmit",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/goods-update/goods-update",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/index/index",
-            "style": {
-                "navigationBarTitleText": "首页"
-            }
-        }, {
-            "path": "pages/order-details/order-details",
-            "style": {
-                "navigationBarTitleText": "订单详情"
-            }
-        }, {
-            "path": "pages/order-list/order-list",
-            "style": {
-                "navigationBarTitleText": "订单列表"
-            }
-        }, {
-            "path": "pages/refunds-details/refunds-details",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/refunds-list/refunds-list",
-            "style": {
-                "navigationBarTitleText": ""
-            }
-        }, {
-            "path": "pages/set-out/set-out",
-            "style": {
-                "navigationBarTitleText": ""
-            }
         }
 		
     ],
@@ -122,7 +46,7 @@
             "iconPath": "static/img/work.png",
             "selectedIconPath": "static/img/work_active.png"
         }, {
-			"pagePath":"pages/order-list/order-list",
+			"pagePath":"pages/order/order-list",
 			"text":"订单",
 			"iconPath":"static/img/order.png",
 			"selectedIconPath":"static/img/order_active.png"
@@ -134,8 +58,8 @@
         }]
     },
     "globalStyle": {
-        "navigationBarTextStyle": "black",
-        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#d81e06",
         "backgroundColor": "#FFFFFF"
     }
 }

@@ -1,31 +1,16 @@
 {
   "pages": [
+    "pages/order/order-list",
     "pages/main/main",
     "pages/login/login",
     "pages/reg/reg",
     "pages/pwd/pwd",
-    "pages/user/user",
-    "pages/express/express",
-    "pages/goods-add/add1/add1",
-    "pages/goods-add/add2/add2",
-    "pages/goods-add/add3/add3",
-    "pages/goods-add/add4/add4",
-    "pages/goods-details/goods-details",
-    "pages/goods-list/goods-list",
-    "pages/goods-list2/goods-list2",
-    "pages/goods-unsubmit/goods-unsubmit",
-    "pages/goods-update/goods-update",
-    "pages/index/index",
-    "pages/order-details/order-details",
-    "pages/order-list/order-list",
-    "pages/refunds-details/refunds-details",
-    "pages/refunds-list/refunds-list",
-    "pages/set-out/set-out"
+    "pages/user/user"
   ],
   "subPackages": [],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#d81e06",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
@@ -40,7 +25,7 @@
         "selectedIconPath": "static/img/work_active.png"
       },
       {
-        "pagePath": "pages/order-list/order-list",
+        "pagePath": "pages/order/order-list",
         "text": "订单",
         "iconPath": "static/img/order.png",
         "selectedIconPath": "static/img/order_active.png"

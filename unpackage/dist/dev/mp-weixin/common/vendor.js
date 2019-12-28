@@ -8618,7 +8618,19 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 39:
+/***/ 4:
+/*!************************************************!*\
+  !*** E:/hbuilderX项目/store_sale_uni/pages.json ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ 47:
 /*!************************************************!*\
   !*** E:/hbuilderX项目/store_sale_uni/service.js ***!
   \************************************************/
@@ -8652,18 +8664,6 @@ var addUser = function addUser(userInfo) {
   getUsers: getUsers,
   addUser: addUser };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 4:
-/*!************************************************!*\
-  !*** E:/hbuilderX项目/store_sale_uni/pages.json ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 
 /***/ }),
 
@@ -9573,7 +9573,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@^2.0.0-alpha-24420191128001","_id"
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/order/order-list": { "navigationBarTitleText": "订单管理" }, "pages/main/main": { "navigationBarTitleText": "", "navigationBarBackgroundColor": "#d81e06", "navigationBarTextStyle": "white" }, "pages/login/login": { "navigationBarTitleText": "商家登录" }, "pages/reg/reg": { "navigationBarTitleText": "注册" }, "pages/pwd/pwd": { "navigationBarTitleText": "找回密码" }, "pages/user/user": { "navigationBarTitleText": "我的" } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#d81e06", "backgroundColor": "#FFFFFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/main/main": { "navigationBarTitleText": "", "navigationBarBackgroundColor": "#d81e06", "navigationBarTextStyle": "white", "usingComponents": {} }, "pages/user/user": { "navigationBarTitleText": "我的", "usingComponents": {} }, "pages/order/orderEdit": { "navigationBarTitleText": "订单管理", "usingComponents": {} }, "pages/login/login": { "navigationBarTitleText": "商家登录", "usingComponents": { "m-input": "/components/m-input" } }, "pages/reg/reg": { "navigationBarTitleText": "注册", "usingComponents": { "m-input": "/components/m-input" } }, "pages/pwd/pwd": { "navigationBarTitleText": "找回密码", "usingComponents": { "m-input": "/components/m-input" } }, "pages/category/categoryEdit": { "navigationBarTitleText": "分类管理", "usingComponents": {} }, "pages/brand/brandEdit": { "navigationBarTitleText": "品牌管理", "usingComponents": {} }, "pages/goods/goodsEdit": { "navigationBarTitleText": "商品管理", "usingComponents": {} }, "pages/parameter/parameterEdit": { "navigationBarTitleText": "属性管理", "usingComponents": {} }, "pages/refund/refundEdit": { "navigationBarTitleText": "退款管理", "usingComponents": {} }, "pages/logistics/logisticsEdit": { "navigationBarTitleText": "物流管理", "usingComponents": {} }, "pages/shop/shopEdit": { "navigationBarTitleText": "店铺管理", "usingComponents": {} }, "pages/cardticket/cardticketEdit": { "navigationBarTitleText": "卡券管理", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#d81e06", "backgroundColor": "#FFFFFF" } };exports.default = _default;
 
 /***/ }),
 

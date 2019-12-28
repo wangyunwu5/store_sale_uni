@@ -4,7 +4,9 @@
             <view class="all_pay_amount_c">
                 今日交易金额(元)
             </view>
-			<view class="all_pay_amount_e">{{todaymoney}}</view>
+			<view class="all_pay_amount_e">
+				<countup :num="todaymoney" color="#FFFFFF" width='13' height='23' fontSize='23'></countup>
+			</view>
             <view class="all_see_order_love_jian">
                 <view class="item">
 					<text>总浏览数</text>
@@ -79,43 +81,43 @@
         </view>
 		<view class="content-bottom">
 			<view class="menu-ul">
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('category','categoryEdit')">
 					<image src="../../static/img/category_icon.png"></image>
 					<text>分类管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('brand','brandEdit')">
 					<image src="../../static/img/brand_icon.png"></image>
 					<text>品牌管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('goods','goodsEdit')">
 					<image src="../../static/img/goods_icon.png"></image>
 					<text>商品管理</text>
 				</view>
 			</view>
 			<view class="menu-ul">
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('parameter','parameterEdit')">
 					<image src="../../static/img/parameter_icon.png"></image>
 					<text>属性管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('order','orderEdit')">
 					<image src="../../static/img/order_icon.png"></image>
 					<text>订单管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('refund','refundEdit')">
 					<image src="../../static/img/returngoods_icon.png"></image>
 					<text>退款管理</text>
 				</view>
 			</view>
 			<view class="menu-ul">
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('logistics','logisticsEdit')">
 					<image src="../../static/img/logistics_icon.png"></image>
 					<text>物流管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('shop','shopEdit')">
 					<image src="../../static/img/shop_icon.png"></image>
 					<text>店铺管理</text>
 				</view>
-				<view class="menu-li">
+				<view class="menu-li" @tap="navigateToNewVue('cardticket','cardticketEdit')">
 					<image src="../../static/img/card_ticket_icon.png"></image>
 					<text>卡券管理</text>
 				</view>
@@ -132,7 +134,7 @@
     export default {
 		data(){
 			return{
-				todaymoney:'989.00',
+				todaymoney:0.50,
 				allscan:'666885',
 				alllove:'2342',
 				allorder:'2356',
@@ -149,8 +151,11 @@
 			}
 		},
         computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
-        /* onLoad() {
-            if (!this.hasLogin) {
+		onShow() {
+			this.getInfo();
+		},
+        onLoad() {
+            /* if (!this.hasLogin) {
                 uni.showModal({
                     title: '未登录',
                     content: '您未登录，需要登录后才能继续',
@@ -171,8 +176,36 @@
                         }
                     }
                 });
-            }
-        } */
+            } */
+			
+			
+        },
+		 methods:{
+			 getInfo(){
+				 if(this.todaymoney >=100000000.00){
+				 	this.todaymoney=0;
+				 }
+				 else{
+				 		this.todaymoney +=5.55; 
+				 }
+				 setTimeout(() => {
+					 this.getInfo();
+				 }, 6000);
+			 },
+			 navigateToNewVue:function(url1,url2){
+				 if(url1==='order'){
+				 	uni.switchTab({//跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+				 		url:`../${url1}/${url2}`
+				 	})
+				 }
+				 else{
+					 uni.navigateTo({//保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
+						/* url:'../'+url1+'/'+url2 */
+						url:`../${url1}/${url2}`//es6
+					 })
+				 }
+			 }
+		 }
     }
 </script>
 
@@ -186,25 +219,25 @@
     .content-top{
 		display: flex;
 		flex-direction: column;
-		height: 320upx;
+		height: 320rpx;
 		background-color: #d81e06;
 		color: #FFFFFF;
 	}
 	.all_pay_amount_c{
-		height: 60upx;
+		height: 60rpx;
 		text-align: center;
-		line-height: 80upx;
-		font-size: 25upx;
+		line-height: 80rpx;
+		font-size: 25rpx;
 	}
 	.all_pay_amount_e{
-		height: 120upx;
+		height: 60rpx;
 		text-align: center;
-		line-height: 100upx;
-		font-size: 40upx;
+		padding-top: 50rpx;
+		font-size: 40rpx;
 		font-weight: bold;
 	}
 	.all_see_order_love_jian{
-		padding: 0 20upx;
+		padding: 0 20urpx;
 		flex: 1;
 		display: flex;
 		flex-direction: row;
@@ -212,43 +245,43 @@
 		align-items: center;
 	}
 	.item{
-		height: 100upx;
+		height: 100rpx;
 		display: flex;
 		flex-direction: column;
-		font-size: 24upx;
+		font-size: 24rpx;
 		align-items:center;
 		justify-content:space-between;
 	}
 	.myline{
-		width: 3upx;
-		height: 30upx;
+		width: 3rpx;
+		height: 30rpx;
 		background-color: white;
 	}
 	.content-middle{
-		height: 300upx;
+		height: 300rpx;
 		display: flex;
 		flex-direction: column;
 	}
 	.list-ul{
-		height: 100upx;
+		height: 100rpx;
 		display: flex;
 		flex-direction: row;
-		padding: 0 20upx;
+		padding: 0 20rpx;
 		align-items:center;
 		justify-content: space-around;
-		border-bottom: 2upx solid #A3A3A3;
+		border-bottom: 2rpx solid #A3A3A3;
 	}
 	.list-li{
-		height: 80upx;
+		height: 80rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
-		font-size: 24upx;
+		font-size: 24rpx;
 	}
 	.list-line{
-		width: 3upx;
-		height: 30upx;
+		width: 3rpx;
+		height: 30rpx;
 		background-color: #A3A3A3;
 	}
 	.text{
@@ -264,25 +297,25 @@
 		flex-direction: column;
 	}
 	.menu-ul{
-		height: 150upx;
+		height: 150rpx;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
 	}
 	.menu-li{
-		height: 120upx;
+		height: 120rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 	}
 	.menu-li image{
-		width: 100upx;
-		height: 100upx;
+		width: 100rpx;
+		height: 100rpx;
 	}
 	.menu-li text{
-		font-size: 24upx;
+		font-size: 24rpx;
 	}
 </style>
 

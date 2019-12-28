@@ -31,14 +31,14 @@
 		font-size: 25rpx;
 }
 .all_pay_amount_e{
-		height: 120rpx;
+		height: 60rpx;
 		text-align: center;
-		line-height: 100rpx;
+		padding-top: 50rpx;
 		font-size: 40rpx;
 		font-weight: bold;
 }
 .all_see_order_love_jian{
-		padding: 0 20rpx;
+		padding: 0 20urpx;
 		-webkit-box-flex: 1;
 		-webkit-flex: 1;
 		        flex: 1;

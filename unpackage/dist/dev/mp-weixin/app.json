@@ -1,11 +1,19 @@
 {
   "pages": [
-    "pages/order/order-list",
     "pages/main/main",
+    "pages/category/categoryEdit",
+    "pages/user/user",
+    "pages/order/orderEdit",
     "pages/login/login",
     "pages/reg/reg",
     "pages/pwd/pwd",
-    "pages/user/user"
+    "pages/brand/brandEdit",
+    "pages/goods/goodsEdit",
+    "pages/parameter/parameterEdit",
+    "pages/refund/refundEdit",
+    "pages/logistics/logisticsEdit",
+    "pages/shop/shopEdit",
+    "pages/cardticket/cardticketEdit"
   ],
   "subPackages": [],
   "window": {
@@ -25,7 +33,7 @@
         "selectedIconPath": "static/img/work_active.png"
       },
       {
-        "pagePath": "pages/order/order-list",
+        "pagePath": "pages/order/orderEdit",
         "text": "订单",
         "iconPath": "static/img/order.png",
         "selectedIconPath": "static/img/order_active.png"
@@ -38,5 +46,8 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {
+    "countup": "/components/countUp/countUp",
+    "textscroll": "/components/screenTextScroll/screenTextScroll"
+  }
 }

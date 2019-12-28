@@ -107,4 +107,21 @@ m-input {
 button.primary {
 	background-color: #0faeff;
 }
+/* .uni-icon {
+    font-family: uniicons;
+    font-weight: normal;
+}
+.uni-panel-icon {
+    margin-left: 15px;
+    color: #999999;
+    font-size: 14px;
+    font-weight: normal;
+    transform: rotate(0deg);
+    transition-duration: 0s;
+    transition-property: transform;
+} */
+.toright{
+	height: 40rpx;
+	width: 40rpx;
+}
 

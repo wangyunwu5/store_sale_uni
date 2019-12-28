@@ -22,7 +22,7 @@
 										<text>{{order.purchaser_level}}</text>
 										<text>{{order.purchaser_name}}</text>
 									</view>
-									<text style="font-size: 20upx;color: #d81e06;">等待买家付款</text>
+									<text style="font-size: 20rpx;color: #d81e06;">等待买家付款</text>
 								</view>
 								<view class="buyer_data_down">
 									<text>{{order.buy_time}}</text>
@@ -36,7 +36,7 @@
 											<image :src="goods.goods_img"></image>
 										</view>
 										<view class="goods_name">
-											<text  style="margin-right: 20upx;">{{goods.goods_name}}</text>X<text>{{goods.buy_num}}</text>
+											<text  style="margin-right: 20rpx;">{{goods.goods_name}}</text>X<text>{{goods.buy_num}}</text>
 										</view>
 										<view class="goods_price">￥{{goods.goods_price}}</view>
 									</view>
@@ -279,20 +279,20 @@
 	    flex-direction: column;
 	    overflow: hidden;
 	    background-color: #ffffff;
-	    height: 100vh;
+	    /* height: 100vh; */
 	}
 	
 	.scroll-h {
-	    width: 750upx;
-	    height: 80upx;
+	    width: 750rpx;
+	    height: 80rpx;
 	    flex-direction: row;
 	    white-space: nowrap;
 	}
 	.uni-tab-item-title {
 	    color: #555;
-	    font-size: 30upx;
-	    height: 80upx;
-	    line-height: 80upx;
+	    font-size: 30rpx;
+	    height: 80rpx;
+	    line-height: 80rpx;
 	    flex-wrap: nowrap;
 	    white-space: nowrap;
 	}
@@ -301,14 +301,14 @@
 	    color: #d81e06;
 	}
 	.line-h {
-	    height: 1upx;
+	    height: 1rpx;
 	    background-color: #cccccc;
 	}
 	.uni-tab-item {
 	    display: inline-block;
 	    flex-wrap: nowrap;
-	    padding-left: 34upx;
-	    padding-right: 34upx;
+	    padding-left: 34rpx;
+	    padding-right: 34rpx;
 	}
 	.swiper-box {
 	    flex: 1;
@@ -323,31 +323,31 @@
 		align-items: center;
 	}
 	.no_order_data image{
-		height: 100upx;
-		width: 100upx;
+		height: 100rpx;
+		width: 100rpx;
 	}
 	.no_order_data text{
-		font-size: 24upx;
+		font-size: 24rpx;
 	}
 	.have_order_data{
 		height: 100%;
-		padding: 10upx 15upx;
+		padding: 10rpx 15rpx;
 		background-color: #F5F5F5;
 	}
 	.order-item{
-		min-height: 300upx;
+		min-height: 300rpx;
 		background-color: #FFFFFF;
 		width: 100%;
-		border-radius: 10upx;
-		box-shadow: 0upx 0upx 10upx #CCCCCC;
-		margin: 10upx 0;
+		border-radius: 10rpx;
+		box-shadow: 0rpx 0rpx 10rpx #CCCCCC;
+		margin: 10rpx 0;
 	}
 	.buyer_data{
-		height: 80upx;
-		padding: 10upx;
+		height: 80rpx;
+		padding: 10rpx;
 	}
 	.buyer_data_up{
-		height: 40upx;
+		height: 40rpx;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -355,65 +355,64 @@
 	.purchaser{
 		display: flex;
 		flex-direction: row;
-		min-width: 160upx;
+		min-width: 160rpx;
 		align-items: center;
 		justify-content: flex-start;
 	}
 	.purchaser image{
-		height: 40upx;
-		width: 40upx;
+		height: 40rpx;
+		width: 40rpx;
 	}
 	.purchaser text{
-		font-size: 20upx;
-		margin-left: 10upx;
+		font-size: 20rpx;
+		margin-left: 10rpx;
 	}
 	.buyer_data_down{
 		flex: 1;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
-		font-size: 20upx;
+		font-size: 20rpx;
 		color:  #A3A3A3;
 	}
 	
 	.goods_image{
-		width:100upx;
+		width:100rpx;
 	}
 	.goods_image image{
-		height: 80upx;
-		width: 80upx;
-		border-radius: 10upx;
-		
+		height: 80rpx;
+		width: 80rpx;
+		border-radius: 10rpx;
 	}
 	.order_data{
-		min-height: 90upx;
+		min-height: 90rpx;
 		background-color: #FAFAFA;
-		padding:10upx;
+		padding:10rpx;
 	}
 	.goods_item{
-		height: 90upx;
+		height: 90rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 	.goods_name{
-		font-size: 24upx;
+		font-size: 24rpx;
 		flex: 1;
 	}
 	.goods_price{
-		width: 120upx;
-		font-size: 22upx;
+		width: 120rpx;
+		font-size: 22rpx;
 	}
 	
 	.order_summary{
-		height: 60upx;
+		height: 60rpx;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 10upx;
+		padding: 10rpx;
 	}
 	.order_summary text{
-		margin-left: 20upx;
-		font-size: 25upx;
+		margin-left: 20rpx;
+		font-size: 25rpx;
 	}
 </style>

@@ -1,0 +1,67 @@
+
+.this_content{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	background-color: #efeff4;
+}
+.content_item{
+	min-height: 100rpx;
+}
+.no_image{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	height: 250rpx;
+	background-color: #FAFAFA;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	width: 100%;
+}
+.no_image>image, .show_image>image{
+	height: 80rpx;
+	width: 80rpx;
+}
+.no_image>text{
+	font-size: 20rpx;
+}
+.show_image{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	height: 250rpx;
+	/* background-image: url(../../static/img/huawei_icon.jpg); */
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	        justify-content: flex-end;
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	        align-items: flex-end;
+	width: 100%;
+}
+.show_image>image{
+	margin-bottom: 10rpx;
+	margin-right: 10rpx;
+}
+

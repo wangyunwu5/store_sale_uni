@@ -1,1 +1,1 @@
-<view class="_div"></view>
+<view class="this_content"><view class="content_item"><block wx:if="{{shopimage===''||shopimage==null}}"><view class="no_image"><image src="../../static/img/photograph1.png"></image><text>点击添加图片</text></view></block><block wx:if="{{shopimage!=''||shopimage!=null}}"><view class="show_image" style="{{'background-image:'+('url('+shopimage+')')+';'}}"><image src="../../static/img/photograph1.png"></image></view></block></view></view>

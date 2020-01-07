@@ -2,32 +2,22 @@
 	<view class="content">
 		<block v-for="(param,index) in paramlist" :key="index">
 			<view class="param_item">
-				<view class="param_parent">
+				<view class="param">
 					<text>{{param.param_sort}}</text>
 					<image class="param_icon" :src="param.param_icon"></image>
 					<view class="param_edit">
-						<view class="param_name">{{param.param_name}}</view>
-						<view class="btn_delete">删除</view>
-						<view class="btn_edit">编辑</view>
-					</view>
-					<image class="torightordown" src="../../static/img/toright.png"></image>
-				</view>
-				<block v-for="(child1,index) in param.child1" :key="index">
-					<view class="param_child1">
-						<text>{{child1.param_sort}})</text>
-						<image class="param_icon" :src="child1.param_icon"></image>
-						<view class="param_edit">
-							<view class="param_name">{{child1.param_name}}</view>
-							<view class="btn_delete">删除</view>
-							<view class="btn_edit">编辑</view>
+						<view class="param_name">
+							<text>{{param.param_name}}</text>
+							<text v-if="param.parent != ''">父级:{{param.parent}}</text>
 						</view>
-						<image class="torightordown" src="../../static/img/toright.png"></image>
+						<view class="btn_delete" @tap="delcategory">删除</view>
+						<view class="btn_edit" @tap="editcategory">编辑</view>
 					</view>
-				</block>
+				</view>
 			</view>
 		</block>
 		<view class="bottom_box">
-			<view class="btn_add">添加分类</view>
+			<view class="btn_add" @tap="addcategory">添加分类</view>
 		</view>
 	</view>
 </template>
@@ -42,43 +32,66 @@
 						param_sort:'1',
 						param_icon:'../../static/img/mate30_rs.jpg',
 						param_name:'手机',
-						param_havechild:true,
-						child1:[
-							{
-								param_id:1,
-								param_sort:'1',
-								param_icon:'../../static/img/mate30_rs.jpg',
-								param_name:'华为',
-								param_havechild:false
-							},{
-								param_id:2,
-								param_sort:'2',
-								param_icon:'../../static/img/phone11_promax.jpg',
-								param_name:'苹果',
-								param_havechild:true
-							}
-						]
+						parent:''
 					},
 					{
 						param_id:2,
 						param_sort:'2',
 						param_icon:'../../static/img/computer.jpg',
 						param_name:'电脑',
-						param_havechild:false
+						parent:''
 					},{
 						param_id:3,
 						param_sort:'3',
 						param_icon:'../../static/img/cloth.jpg',
 						param_name:'服装',
-						param_havechild:false
+						parent:''
 					},{
 						param_id:4,
 						param_sort:'4',
 						param_icon:'../../static/img/homefurnishing.jpg',
 						param_name:'家居',
-						param_havechild:false
+						parent:''
+					},{
+						param_id:5,
+						param_sort:'5',
+						param_icon:'../../static/img/mate30_rs.jpg',
+						param_name:'华为',
+						parent:'手机'
+					},{
+						param_id:6,
+						param_sort:'6',
+						param_icon:'../../static/img/phone11_promax.jpg',
+						param_name:'苹果',
+						parent:'手机'
 					}
 				]
+			}
+		},
+		methods:{
+			addcategory(){
+				uni.navigateTo({
+					url:'addcategory'
+				})
+			},
+			editcategory(){
+				uni.navigateTo({
+					url:'updatecategory'
+				})
+			},
+			delcategory(){
+				uni.showModal({
+				    title: '温馨提示',
+				    content: '是否确定删除此项',
+					confirmColor:'#d81e06',
+				    success: function (res) {
+				        if (res.confirm) {
+				            console.log('用户点击确定');
+				        } else if (res.cancel) {
+				            console.log('用户点击取消');
+				        }
+				    }
+				});
 			}
 		}
 	}
@@ -89,7 +102,7 @@
 		min-height: 80rpx;
 		margin: 5rpx 0;
 	}
-	.param_parent{
+	.param{
 		height: 80rpx;
 		background-color: #FFFFFF;
 		display: flex;
@@ -99,7 +112,7 @@
 	}
 	.param_child1{
 		height: 80rpx;
-		background-color: #C0C4CC;
+		background-color: #FFFFFF;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -116,18 +129,19 @@
 		justify-content: ;
 	}
 	.param_name{
-		font-size: 20rpx;
+		font-size: 22rpx;
 		flex: 1;
 		display: flex;
-		justify-content: flex-start;
+		justify-content: space-between;
 		align-items: center;
+		padding:0 10rpx;
 	}
 	.btn_delete,.btn_edit,.btn_add{
-		height: 30rpx;
-		line-height: 30rpx;
+		height: 25rpx;
+		line-height: 25rpx;
 		min-width: 60rpx;
-		padding: 10rpx;
-		font-size: 18rpx;
+		padding: 6rpx;
+		font-size: 20rpx;
 		text-align: center;
 	}
 	.btn_delete{
@@ -139,13 +153,21 @@
 		margin-left: 10rpx;
 	}
 	.btn_add{
-		border: 1rpx solid  #d81e06;
-		color: #d81e06;
+		background-color: #d81e06;
+		color: #FFFFFF;
+		border-radius: 8rpx;
+		padding: 10rpx 20rpx;
 	}
-	.torightordown{
-		width: 40rpx;
+	.paramparent{
+		width: 120rpx;
 		height: 40rpx;
-		margin-left:10rpx;
+		line-height: 40rpx;
+		text-align: center;
+		font-size: 20rpx;
+	}
+	.torightordown image{
+		width: 35rpx;
+		height: 35rpx;
 	}
 	.bottom_box{
 		position: absolute;
@@ -157,5 +179,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	.notshow{
+		display: none;
 	}
 </style>

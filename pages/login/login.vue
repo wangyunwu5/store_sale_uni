@@ -43,7 +43,7 @@
         components: {
             mInput
         },
-        data() {
+        data(){
             return {
                 providerList: [],
                 hasProvider: true,

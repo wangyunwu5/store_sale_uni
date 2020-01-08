@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/category/categoryEdit",
+    "pages/category/addcategory",
+    "pages/category/updatecategory",
+    "pages/user/user",
+    "pages/order/orderEdit",
+    "pages/login/login",
+    "pages/reg/reg",
+    "pages/pwd/pwd",
+    "pages/brand/brandEdit",
+    "pages/brand/addbrand",
+    "pages/brand/updatebrand",
+    "pages/goods/goodsEdit",
+    "pages/parameter/parameterEdit",
+    "pages/refund/refundEdit",
+    "pages/logistics/logisticsEdit",
+    "pages/shop/shopEdit",
+    "pages/cardticket/cardticketEdit"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#d81e06",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#d81e06",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "工作台",
+        "iconPath": "static/img/work.png",
+        "selectedIconPath": "static/img/work_active.png"
+      },
+      {
+        "pagePath": "pages/order/orderEdit",
+        "text": "订单",
+        "iconPath": "static/img/order.png",
+        "selectedIconPath": "static/img/order_active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/img/mine.png",
+        "selectedIconPath": "static/img/mine_active.png"
+      }
+    ]
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "store_sale_uni",
+  "compilerVersion": "2.5.1",
+  "usingComponents": {
+    "countup": "/components/countUp/countUp",
+    "textscroll": "/components/screenTextScroll/screenTextScroll"
+  }
+}

@@ -65,7 +65,21 @@ var _permission = _interopRequireDefault(__webpack_require__(/*! @/common/permis
 //
 //
 //
-var _default = { data: function data() {return { p_brand_index: 0, brandicon: '' };}, onUnload: function onUnload() {}, methods: { chooseImage: function chooseImage() {var _this = this;uni.chooseImage({ count: 1, sizeType: ['compressed'], success: function success(res) {var imgFile = res.tempFilePaths[0];console.log("获取的文件路径为:" + imgFile);_this.brandicon = res.tempFilePaths[0];} });}, imagepreview: function imagepreview() {uni.previewImage({ urls: [this.brandicon] });} } };exports.default = _default;
+var _default = { data: function data() {return { p_brand_index: 0, brandicon: '', describe: '' };}, onUnload: function onUnload() {}, methods: { conInput: function conInput() {this.tatVal = this.describe.length;if (this.tatVal == 120) {uni.showToast({ icon: 'none', title: '最多只能输入120個字' });}}, chooseImage: function chooseImage() {var _this = this;uni.chooseImage({ count: 1, sizeType: ['compressed'], success: function success(res) {var imgFile = res.tempFilePaths[0];console.log("获取的文件路径为:" + imgFile);_this.brandicon = res.tempFilePaths[0];
+        } });
+
+    },
+    imagepreview: function imagepreview() {
+      if (this.brandicon === '' || this.brandicon == null) {
+        uni.showToast({
+          title: '暂时没有图片' });
+
+      } else {
+        uni.previewImage({
+          urls: [this.brandicon] });
+
+      }
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

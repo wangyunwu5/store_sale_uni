@@ -1,0 +1,18 @@
+._notice {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  background: rgba(72, 1, 1, 0.3);
+  font-size: 20rpx;
+  height: 44rpx;
+  color: #ffffff;
+  border-radius: 6rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+._swiper {
+  line-height: 44rpx;
+}
+

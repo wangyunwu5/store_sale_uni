@@ -8,11 +8,11 @@
 		<view class="level"></view>
 		<view class="input_item">
 			<text>品牌简介:</text>
-			<textarea placeholder="请输入简介"></textarea>
+			<textarea maxlength="120" v-model="describe" placeholder="请输入简介" @input="conInput"></textarea>
 		</view>
 		<view class="level"></view>
 		<view class="input_item">
-			<text>图标:</text>
+			<text>品牌LOGO:</text>
 			<image @tap="chooseImage" src="../../static/img/photograph.png"></image>
 			<text style="font-size: 20rpx;color: #b0b0b3;">只能上传一张图片</text>
 		</view>
@@ -33,11 +33,21 @@
 			return {
 				p_brand_index: 0,
 				brandicon: '',
+				describe:''
 			}
 		},
 		onUnload() {
 		},
 		methods: {
+			conInput() {
+				this.tatVal = this.describe.length;
+				if (this.tatVal == 120) {
+					uni.showToast({
+						icon: 'none',
+						title: '最多只能输入120個字'
+					});
+				}
+			},
 			chooseImage(){
 				uni.chooseImage({
 					count:1,
@@ -50,11 +60,16 @@
 				})
 			},
 			imagepreview(){
-				uni.previewImage({
-					urls:[this.brandicon],
-				})
+				if (this.brandicon === '' || this.brandicon == null) {
+					uni.showToast({
+						title: '暂时没有图片'
+					})
+				} else {
+					uni.previewImage({
+						urls: [this.brandicon],
+					})
+				}
 			}
-			
 		}
 	}
 </script>
@@ -73,12 +88,15 @@
 		align-items: center;
 		padding: 0 20rpx;
 	}
-	
-	.input_item textarea{
+	.input_item>text{
+		font-size: 15rpx;
+		color: #DD524D;
+	}
+	.input_item>textarea{
 		font-size: 20rpx;
 		padding: 8rpx 6rpx;
 	}
-	.input_item image {
+	.input_item>image {
 		width: 30rpx;
 		height: 30rpx;
 	}

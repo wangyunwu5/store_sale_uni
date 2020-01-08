@@ -133,7 +133,61 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -148,11 +202,32 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
-  data: function data() {
+  data: function data() {//http://img000.hc360.cn/m6/M08/A7/05/wKhQoVawFzSEWiK2AAAAAA7Bfiw769.jpg
     return {
-      shopimage: '../../static/img/shopimage.jpg' };
+      shoplogo: '../../static/img/huawei_icon.jpg',
+      shopimage: 'http://img000.hc360.cn/m6/M08/A7/05/wKhQoVawFzSEWiK2AAAAAA7Bfiw769.jpg',
+      shopname: '个人百货杂店',
+      shopnewname: '',
+      shoplocation: 'xxx路12号',
+      describe: 'xxx是一家大型的百货杂店，从事日用品以及所有生活用品经营达30余年，经营各类手机、电脑、家居、服饰、食物、纸品、卫生巾及清洁用品等',
+      describe_length: 0 };
 
-  } };exports.default = _default;
+  },
+  onLoad: function onLoad() {
+    this.describe_length = this.describe.length;
+  },
+  methods: {
+    conInput: function conInput() {
+      this.tatVal = this.describe.length;
+      this.describe_length = this.tatVal;
+      if (this.tatVal == 200) {
+        uni.showToast({
+          icon: 'none',
+          title: '最多只能输入200個字' });
+
+      }
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

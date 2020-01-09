@@ -1,13 +1,15 @@
 <template>
 	<view class="content">
-
 		<view class="input_item">
 			<text>品牌名:</text>
-			<input type="text" placeholder="请输入类名" />
+			<input type="text" placeholder="请输入品牌名" />
 		</view>
-		<view class="level"></view>
+		 <view class="level"></view>
 		<view class="input_item">
-			<text>品牌简介:</text>
+			<view class="describe">
+				<text>品牌简介:</text>
+				<text>{{describe_length}}/120</text>
+			</view>
 			<textarea maxlength="120" v-model="describe" placeholder="请输入简介" @input="conInput"></textarea>
 		</view>
 		<view class="level"></view>
@@ -17,7 +19,7 @@
 			<text style="font-size: 20rpx;color: #b0b0b3;">只能上传一张图片</text>
 		</view>
 		<view class="brand_icon">
-			<image :src="brandicon" @tap="imagepreview" alt="图片"></image>
+			<image :src="brandicon" @tap="imagepreview"></image>
 		</view>
 		<view class="bottom_box">
 			<view class="quxiao">取消</view>
@@ -33,13 +35,17 @@
 			return {
 				p_brand_index: 0,
 				brandicon: '',
-				describe:''
+				describe: 'xxxxxxxxx',
+				describe_length: 0
 			}
 		},
-		onUnload() {},
+		onLoad() {
+			this.describe_length = this.describe.length;
+		},
 		methods: {
 			conInput() {
 				this.tatVal = this.describe.length;
+				this.describe_length = this.tatVal;
 				if (this.tatVal == 120) {
 					uni.showToast({
 						icon: 'none',
@@ -69,7 +75,6 @@
 					})
 				}
 			}
-
 		}
 	}
 </script>
@@ -89,12 +94,29 @@
 		padding: 0 20rpx;
 	}
 
-	.input_item textarea {
+	.input_item>text {
 		font-size: 20rpx;
-		padding: 8rpx 6rpx;
+		padding: 0 20rpx;
+	}
+	.describe{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 20rpx;
+	}
+	.describe>text{
+		font-size: 20rpx;
 	}
 
-	.input_item image {
+	.input_item>textarea {
+		width: 500rpx;
+		height: 120rpx;
+		font-size: 20rpx;
+		padding: 8rpx 6rpx;
+		color: #515151;
+	}
+
+	.input_item>image {
 		width: 30rpx;
 		height: 30rpx;
 	}
@@ -117,11 +139,6 @@
 		width: 140rpx;
 		height: 140rpx;
 		border-radius: 10rpx;
-	}
-
-	.input_item text {
-		font-size: 24rpx;
-		padding: 0 20rpx;
 	}
 
 	.input_item input {

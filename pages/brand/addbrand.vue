@@ -1,13 +1,15 @@
 <template>
 	<view class="content">
-		
 		<view class="input_item">
 			<text>品牌名:</text>
-			<input type="text" placeholder="请输入类名" />
+			<input type="text" placeholder="请输入品牌名" />
 		</view>
-		<view class="level"></view>
+		 <view class="level"></view>
 		<view class="input_item">
-			<text>品牌简介:</text>
+			<view class="describe">
+				<text>品牌简介:</text>
+				<text>{{describe_length}}/120</text>
+			</view>
 			<textarea maxlength="120" v-model="describe" placeholder="请输入简介" @input="conInput"></textarea>
 		</view>
 		<view class="level"></view>
@@ -33,14 +35,17 @@
 			return {
 				p_brand_index: 0,
 				brandicon: '',
-				describe:''
+				describe: 'xxxxxxxxx',
+				describe_length: 0
 			}
 		},
-		onUnload() {
+		onLoad() {
+			this.describe_length = this.describe.length;
 		},
 		methods: {
 			conInput() {
 				this.tatVal = this.describe.length;
+				this.describe_length = this.tatVal;
 				if (this.tatVal == 120) {
 					uni.showToast({
 						icon: 'none',
@@ -48,18 +53,18 @@
 					});
 				}
 			},
-			chooseImage(){
+			chooseImage() {
 				uni.chooseImage({
-					count:1,
-					sizeType:['compressed'],
-					success:(res) =>{
+					count: 1,
+					sizeType: ['compressed'],
+					success: (res) => {
 						let imgFile = res.tempFilePaths[0];
-						console.log("获取的文件路径为:"+imgFile);
+						console.log("获取的文件路径为:" + imgFile);
 						this.brandicon = res.tempFilePaths[0];
 					}
 				})
 			},
-			imagepreview(){
+			imagepreview() {
 				if (this.brandicon === '' || this.brandicon == null) {
 					uni.showToast({
 						title: '暂时没有图片'
@@ -88,14 +93,29 @@
 		align-items: center;
 		padding: 0 20rpx;
 	}
-	.input_item>text{
-		font-size: 15rpx;
-		color: #DD524D;
+
+	.input_item>text {
+		font-size: 20rpx;
+		padding: 0 20rpx;
 	}
-	.input_item>textarea{
+	.describe{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 20rpx;
+	}
+	.describe>text{
+		font-size: 20rpx;
+	}
+
+	.input_item>textarea {
+		width: 500rpx;
+		height: 120rpx;
 		font-size: 20rpx;
 		padding: 8rpx 6rpx;
+		color: #515151;
 	}
+
 	.input_item>image {
 		width: 30rpx;
 		height: 30rpx;
@@ -121,14 +141,10 @@
 		border-radius: 10rpx;
 	}
 
-	.input_item text {
-		font-size: 24rpx;
-		padding: 0 20rpx;
-	}
-
 	.input_item input {
 		font-size: 20rpx;
 	}
+
 	.quxiao,
 	.queren {
 		height: 30rpx;
@@ -139,12 +155,12 @@
 		text-align: center;
 		border-radius: 8rpx;
 	}
-	
+
 	.quxiao {
 		background-color: #efeff4;
 		color: #000000;
 	}
-	
+
 	.queren {
 		background-color: #d81e06;
 		color: #FFFFFF;

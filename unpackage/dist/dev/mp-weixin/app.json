@@ -1,6 +1,10 @@
 {
   "pages": [
+    "pages/goods/goodsEdit",
     "pages/main/main",
+    "pages/brand/brandEdit",
+    "pages/brand/updatebrand",
+    "pages/brand/addbrand",
     "pages/category/categoryEdit",
     "pages/category/addcategory",
     "pages/category/updatecategory",
@@ -9,10 +13,6 @@
     "pages/login/login",
     "pages/reg/reg",
     "pages/pwd/pwd",
-    "pages/brand/brandEdit",
-    "pages/brand/addbrand",
-    "pages/brand/updatebrand",
-    "pages/goods/goodsEdit",
     "pages/parameter/parameterEdit",
     "pages/refund/refundEdit",
     "pages/logistics/logisticsEdit",

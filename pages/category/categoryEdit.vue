@@ -1,18 +1,16 @@
 <template>
-	<view class="content">
+	 <view class="this_content">
 		<block v-for="(param,index) in paramlist" :key="index">
 			<view class="param_item">
-				<view class="param">
-					<text>{{param.param_sort}}</text>
-					<image class="param_icon" :src="param.param_icon"></image>
-					<view class="param_edit">
-						<view class="param_name">
-							<text>{{param.param_name}}</text>
-							<text v-if="param.parent != ''">父级:{{param.parent}}</text>
-						</view>
-						<view class="btn_delete" @tap="delcategory">删除</view>
-						<view class="btn_edit" @tap="editcategory">编辑</view>
+				<text>{{param.param_sort}}</text>
+				<image class="param_icon" :src="param.param_icon"></image>
+				<view class="param_edit">
+					<view class="param_name">
+						<text>{{param.param_name}}</text>
+						<text v-if="param.parent != ''">父级:{{param.parent}}</text>
 					</view>
+					<view class="btn_delete" @tap="delcategory">删除</view>
+					<view class="btn_edit" @tap="editcategory">编辑</view>
 				</view>
 			</view>
 		</block>
@@ -24,73 +22,76 @@
 
 <script>
 	export default {
-		data (){
+		data() {
 			return {
-				paramlist:[
-					{
-						param_id:1,
-						param_sort:'1',
-						param_icon:'../../static/img/mate30_rs.jpg',
-						param_name:'手机',
-						parent:''
+				paramlist: [{
+						param_id: 1,
+						param_sort: '1',
+						param_icon: '../../static/img/mate30_rs.jpg',
+						param_name: '手机',
+						parent: ''
 					},
 					{
-						param_id:2,
-						param_sort:'2',
-						param_icon:'../../static/img/computer.jpg',
-						param_name:'电脑',
-						parent:''
-					},{
-						param_id:3,
-						param_sort:'3',
-						param_icon:'../../static/img/cloth.jpg',
-						param_name:'服装',
-						parent:''
-					},{
-						param_id:4,
-						param_sort:'4',
-						param_icon:'../../static/img/homefurnishing.jpg',
-						param_name:'家居',
-						parent:''
-					},{
-						param_id:5,
-						param_sort:'5',
-						param_icon:'../../static/img/mate30_rs.jpg',
-						param_name:'华为',
-						parent:'手机'
-					},{
-						param_id:6,
-						param_sort:'6',
-						param_icon:'../../static/img/phone11_promax.jpg',
-						param_name:'苹果',
-						parent:'手机'
+						param_id: 2,
+						param_sort: '2',
+						param_icon: '../../static/img/computer.jpg',
+						param_name: '电脑',
+						parent: ''
+					}, {
+						param_id: 3,
+						param_sort: '3',
+						param_icon: '../../static/img/cloth.jpg',
+						param_name: '服装',
+						parent: ''
+					}, {
+						param_id: 4,
+						param_sort: '4',
+						param_icon: '../../static/img/homefurnishing.jpg',
+						param_name: '家居',
+						parent: ''
+					}, {
+						param_id: 5,
+						param_sort: '5',
+						param_icon: '../../static/img/mate30_rs.jpg',
+						param_name: '华为',
+						parent: '手机'
+					}, {
+						param_id: 6,
+						param_sort: '6',
+						param_icon: '../../static/img/phone11_promax.jpg',
+						param_name: '苹果',
+						parent: '手机'
 					}
 				]
 			}
 		},
-		methods:{
-			addcategory(){
+		methods: {
+			addcategory() {
+				console.log('添加分类');
 				uni.navigateTo({
-					url:'addcategory'
+					url: 'addcategory',
+					animationType: 'pop-in',
+					animationDuration: 200
 				})
 			},
-			editcategory(){
+			editcategory() {
+				console.log("更新分类")
 				uni.navigateTo({
-					url:'updatecategory'
+					url: 'updatecategory'
 				})
 			},
-			delcategory(){
+			delcategory() {
 				uni.showModal({
-				    title: '温馨提示',
-				    content: '是否确定删除此项',
-					confirmColor:'#d81e06',
-				    success: function (res) {
-				        if (res.confirm) {
-				            console.log('用户点击确定');
-				        } else if (res.cancel) {
-				            console.log('用户点击取消');
-				        }
-				    }
+					title: '温馨提示',
+					content: '是否确定删除此项',
+					confirmColor: '#d81e06',
+					success: function(res) {
+						if (res.confirm) {
+							console.log('用户点击确定');
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
 				});
 			}
 		}
@@ -98,45 +99,51 @@
 </script>
 
 <style>
-	.param_item{
-		min-height: 80rpx;
-		margin: 5rpx 0;
-	}
-	.param{
-		height: 80rpx;
-		background-color: #FFFFFF;
+	.this_content{
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 10rpx;
-	}
-	.param_child1{
-		height: 80rpx;
-		background-color: #FFFFFF;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 10rpx;
-	}
-	.param_icon{
-		width:60rpx;
-		height: 60rpx;
-		margin: 0 10rpx;
-	}
-	.param_edit{
 		flex: 1;
-		display: flex;
-		justify-content: ;
+		flex-direction: column;
+		background-color: #efeff4;
+		width: 750rpx;
+		padding: 10rpx;
 	}
-	.param_name{
+	.param_item{
+		padding: 10rpx;
+		height: 80rpx;
+		background-color: #FFFFFF;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 5rpx solid #efeff4;
+	}
+	.param_item>text{
+		font-size: 20rpx;
+		min-width: 10rpx;
+	}
+	.param_icon {
+		width: 50rpx;
+		height: 50rpx;
+	}
+
+	.param_edit {
+		height: 50rpx;
+		display: flex;
+		flex: 1;
+		align-items: center;
+	}
+
+	.param_name {
 		font-size: 22rpx;
 		flex: 1;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding:0 10rpx;
+		padding: 0 10rpx;
 	}
-	.btn_delete,.btn_edit,.btn_add{
+
+	.btn_delete,
+	.btn_edit,
+	.btn_add {
 		height: 25rpx;
 		line-height: 25rpx;
 		min-width: 60rpx;
@@ -144,32 +151,39 @@
 		font-size: 20rpx;
 		text-align: center;
 	}
-	.btn_delete{
-		border: 1rpx solid  #efeff4;
+
+	.btn_delete {
+		border: 1rpx solid #efeff4;
 	}
-	.btn_edit{
-		border: 1rpx solid  #d81e06;
+
+	.btn_edit {
+		border: 1rpx solid #d81e06;
 		color: #d81e06;
 		margin-left: 10rpx;
 	}
-	.btn_add{
+
+	.btn_add {
 		background-color: #d81e06;
 		color: #FFFFFF;
 		border-radius: 8rpx;
 		padding: 10rpx 20rpx;
 	}
-	.paramparent{
+
+	.paramparent {
 		width: 120rpx;
 		height: 40rpx;
 		line-height: 40rpx;
 		text-align: center;
 		font-size: 20rpx;
 	}
-	.torightordown image{
+
+	.torightordown image {
 		width: 35rpx;
 		height: 35rpx;
 	}
-	.bottom_box{
+
+	.bottom_box {
+		width: 750rpx;
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -180,7 +194,8 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.notshow{
+
+	.notshow {
 		display: none;
 	}
 </style>

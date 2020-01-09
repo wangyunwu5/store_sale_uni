@@ -20,6 +20,7 @@
 		<view class="category_icon">
 			<image :src="categoryicon" @tap="imagepreview"></image>
 		</view>
+		<view class="black"></view>
 		<view class="bottom_box">
 			<view class="quxiao">取消</view>
 			<view class="queren">确定</view>
@@ -75,12 +76,13 @@
 
 <style>
 	.level {
+		width: 100%;
 		height: 2rpx;
 		background-color: #efeff4;
 	}
 
 	.input_item {
-		min-height: 80rpx;
+		height: 80rpx;
 		background-color: #FFFFFF;
 		display: flex;
 		justify-content: flex-start;
@@ -88,12 +90,12 @@
 		padding: 0 20rpx;
 	}
 
-	.input_item image {
+	.input_item>image {
 		width: 30rpx;
 		height: 30rpx;
 	}
 
-	.input_item picker {
+	.input_item>picker {
 		font-size: 20rpx;
 		color: #515151;
 	}
@@ -106,19 +108,19 @@
 		background-color: #FFFFFF;
 	}
 
-	.category_icon image {
+	.category_icon>image {
 		border: 1rpx solid #efeff4;
 		width: 140rpx;
 		height: 140rpx;
 		border-radius: 10rpx;
 	}
 
-	.input_item text {
+	.input_item>text {
 		font-size: 24rpx;
 		padding: 0 20rpx;
 	}
 
-	.input_item input {
+	.input_item>input {
 		font-size: 20rpx;
 	}
 	.quxiao,
@@ -153,5 +155,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	.black{
+		flex: 1;
+		background-color: #efeff4;
 	}
 </style>

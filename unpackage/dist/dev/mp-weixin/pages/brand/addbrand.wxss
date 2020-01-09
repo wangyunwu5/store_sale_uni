@@ -17,13 +17,32 @@
 	        align-items: center;
 	padding: 0 20rpx;
 }
-.input_item>text{
-	font-size: 15rpx;
-	color: #DD524D;
+.input_item>text {
+	font-size: 20rpx;
+	padding: 0 20rpx;
 }
-.input_item>textarea{
+.describe{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	padding: 0 20rpx;
+}
+.describe>text{
+	font-size: 20rpx;
+}
+.input_item>textarea {
+	width: 500rpx;
+	height: 120rpx;
 	font-size: 20rpx;
 	padding: 8rpx 6rpx;
+	color: #515151;
 }
 .input_item>image {
 	width: 30rpx;
@@ -51,10 +70,6 @@
 	width: 140rpx;
 	height: 140rpx;
 	border-radius: 10rpx;
-}
-.input_item text {
-	font-size: 24rpx;
-	padding: 0 20rpx;
 }
 .input_item input {
 	font-size: 20rpx;

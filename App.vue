@@ -57,79 +57,9 @@
 		flex: 1;
 		flex-direction: column;
 		background-color: #efeff4;
-		padding: 20rpx;
+		padding: 15rpx;
+		width: 750rpx;
 	}
-	.input-group {
-		background-color: #ffffff;
-		margin-top: 40rpx;
-		position: relative;
-	}
-	.input-group::before {
-		position: absolute;
-		right: 0;
-		top: 0;
-		left: 0;
-		height: 1rpx;
-		content: '';
-		-webkit-transform: scaleY(0.5);
-		transform: scaleY(0.5);
-		background-color: #c8c7cc;
-	}
-	.input-group::after {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		height: 1rpx;
-		content: '';
-		-webkit-transform: scaleY(0.5);
-		transform: scaleY(0.5);
-		background-color: #c8c7cc;
-	}
-	.input-row {
-		display: flex;
-		flex-direction: row;
-		position: relative;
-	}
-	.input-row .title {
-		width: 20%;
-		height: 50rpx;
-		min-height: 50rpx;
-		padding: 15rpx 0;
-		padding-left: 30rpx;
-		line-height: 50rpx;
-	}
-	.input-row.border::after {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 15rpx;
-		height: 1rpx;
-		content: '';
-		-webkit-transform: scaleY(.5);
-		transform: scaleY(.5);
-		background-color: #c8c7cc;
-	}
-	.btn-row {
-		margin-top: 50rpx;
-		padding: 20rpx;
-	}
-	button.primary {
-		background-color: #0faeff;
-	}
-	/* .uni-icon {
-	    font-family: uniicons;
-	    font-weight: normal;
-	}
-	.uni-panel-icon {
-	    margin-left: 15px;
-	    color: #999999;
-	    font-size: 14px;
-	    font-weight: normal;
-	    transform: rotate(0deg);
-	    transition-duration: 0s;
-	    transition-property: transform;
-	} */
 	.toright{
 		height: 40rpx;
 		width: 40rpx;

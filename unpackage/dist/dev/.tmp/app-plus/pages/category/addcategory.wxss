@@ -1,10 +1,11 @@
 
 .level {
+	width: 100%;
 	height: 2rpx;
 	background-color: #efeff4;
 }
 .input_item {
-	min-height: 80rpx;
+	height: 80rpx;
 	background-color: #FFFFFF;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -86,5 +87,11 @@
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
+}
+.black{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	background-color: #efeff4;
 }
 

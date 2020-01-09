@@ -101,12 +101,8 @@
 		flex: 1;
 		flex-direction: column;
 		background-color: #efeff4;
+		width: 750rpx;
 	}
-
-	.content_item {
-		/* min-height: 100rpx; */
-	}
-
 	.no_image {
 		display: flex;
 		height: 250rpx;
@@ -114,7 +110,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 100%;
+		
 	}
 
 	.no_image>image,
@@ -127,15 +123,15 @@
 		font-size: 20rpx;
 	}
 
-	.show_image {
+	.show_image{
 		display: flex;
+		width: 750rpx;
 		height: 250rpx;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: flex-end;
-		width: 100%;
 	}
 
 	.show_image>image {
@@ -179,6 +175,8 @@
 	.receipt,
 	.offlinepayment,
 	.membercard,.shoplogo {
+		width: 750rpx;
+		box-sizing: border-box;
 		background-color: #FFFFFF;
 		height: 80rpx;
 		display: flex;

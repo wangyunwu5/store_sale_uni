@@ -1,12 +1,32 @@
 {
     "pages": [ //pages数组中第一项表示应用启动页,
         {
+        	"path":"pages/goods/goodsEdit",
+        	"style":{
+        		"navigationBarTitleText":"商品管理"
+        	}
+        },{
             "path": "pages/main/main",
             "style": {
                 "navigationBarTitleText": "",
         		"navigationBarBackgroundColor":"#d81e06",
         		"navigationBarTextStyle":"white"
             }
+        },{
+        	"path":"pages/brand/brandEdit",
+        	"style":{
+        		"navigationBarTitleText":"品牌管理"
+        	}
+        },{
+        	"path":"pages/brand/updatebrand",
+        	"style":{
+        		"navigationBarTitleText":"品牌更新"
+        	}
+        },{
+        	"path":"pages/brand/addbrand",
+        	"style":{
+        		"navigationBarTitleText":"新增品牌"
+        	}
         },{
         	"path":"pages/category/categoryEdit",
         	"style":{
@@ -15,12 +35,12 @@
         },{
         	"path":"pages/category/addcategory",
         	"style":{
-        		"navigationBarTitleText":"新增分类"
+        		"navigationBarTitleText":"添加分类"
         	}
         },{
         	"path":"pages/category/updatecategory",
         	"style":{
-        		"navigationBarTitleText":"编辑分类"
+        		"navigationBarTitleText":"分类更新"
         	}
         },{
             "path": "pages/user/user",
@@ -49,26 +69,6 @@
                 "navigationBarTitleText": "找回密码"
             }
         },{
-			"path":"pages/brand/brandEdit",
-			"style":{
-				"navigationBarTitleText":"品牌管理"
-			}
-		},{
-			"path":"pages/brand/addbrand",
-			"style":{
-				"navigationBarTitleText":"新增品牌"
-			}
-		},{
-			"path":"pages/brand/updatebrand",
-			"style":{
-				"navigationBarTitleText":"品牌更新"
-			}
-		},{
-			"path":"pages/goods/goodsEdit",
-			"style":{
-				"navigationBarTitleText":"商品管理"
-			}
-		},{
 			"path":"pages/parameter/parameterEdit",
 			"style":{
 				"navigationBarTitleText":"属性管理"

@@ -1,17 +1,22 @@
 {
     "pages": [ //pages数组中第一项表示应用启动页,
         {
-        	"path":"pages/goods/goodsEdit",
-        	"style":{
-        		"navigationBarTitleText":"商品管理"
-        	}
-        },{
             "path": "pages/main/main",
             "style": {
                 "navigationBarTitleText": "",
         		"navigationBarBackgroundColor":"#d81e06",
         		"navigationBarTextStyle":"white"
             }
+        },{
+        	"path":"pages/goods/addgoods",
+        	"style":{
+        		"navigationBarTitleText":"添加商品"
+        	}
+        },{
+        	"path":"pages/goods/goodsEdit",
+        	"style":{
+        		"navigationBarTitleText":"商品管理"
+        	}
         },{
         	"path":"pages/brand/brandEdit",
         	"style":{

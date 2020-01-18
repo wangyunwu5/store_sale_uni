@@ -122,11 +122,7 @@
         }
       ],
       "borderStyle": "rgba(0,0,0,0.4)",
-      "height": "50px",
-      "child": [
-        "lauchwebview"
-      ],
-      "selected": 0
+      "height": "50px"
     }
   }
 }

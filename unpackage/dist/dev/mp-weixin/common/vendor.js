@@ -1534,6 +1534,43 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
+/***/ 112:
+/*!************************************************!*\
+  !*** E:/hbuilderX项目/store_sale_uni/service.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 管理账号信息
+var USERS_KEY = 'USERS_KEY';
+var STATE_KEY = 'STATE_KEY';
+
+var getUsers = function getUsers() {
+  var ret = '';
+  ret = uni.getStorageSync(USERS_KEY);
+  if (!ret) {
+    ret = '[]';
+  }
+  return JSON.parse(ret);
+};
+
+var addUser = function addUser(userInfo) {
+  var users = getUsers();
+  users.push({
+    account: userInfo.account,
+    password: userInfo.password });
+
+  uni.setStorageSync(USERS_KEY, JSON.stringify(users));
+};var _default =
+
+{
+  getUsers: getUsers,
+  addUser: addUser };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 14:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -8706,263 +8743,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 31:
-/*!**********************************************************!*\
-  !*** E:/hbuilderX项目/store_sale_uni/common/permission.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) { /// null = 未请求，1 = 已允许，0 = 拒绝|受限, 2 = 系统未开启
-
-var isIOS;
-
-function album() {
-  var result = 0;
-  var PHPhotoLibrary = plus.ios.import("PHPhotoLibrary");
-  var authStatus = PHPhotoLibrary.authorizationStatus();
-  if (authStatus === 0) {
-    result = null;
-  } else if (authStatus == 3) {
-    result = 1;
-  } else {
-    result = 0;
-  }
-  plus.ios.deleteObject(PHPhotoLibrary);
-  return result;
-}
-
-function camera() {
-  var result = 0;
-  var AVCaptureDevice = plus.ios.import("AVCaptureDevice");
-  var authStatus = AVCaptureDevice.authorizationStatusForMediaType('vide');
-  if (authStatus === 0) {
-    result = null;
-  } else if (authStatus == 3) {
-    result = 1;
-  } else {
-    result = 0;
-  }
-  plus.ios.deleteObject(AVCaptureDevice);
-  return result;
-}
-
-function location() {
-  var result = 0;
-  var cllocationManger = plus.ios.import("CLLocationManager");
-  var enable = cllocationManger.locationServicesEnabled();
-  var status = cllocationManger.authorizationStatus();
-  if (!enable) {
-    result = 2;
-  } else if (status === 0) {
-    result = null;
-  } else if (status === 3 || status === 4) {
-    result = 1;
-  } else {
-    result = 0;
-  }
-  plus.ios.deleteObject(cllocationManger);
-  return result;
-}
-
-function push() {
-  var result = 0;
-  var UIApplication = plus.ios.import("UIApplication");
-  var app = UIApplication.sharedApplication();
-  var enabledTypes = 0;
-  if (app.currentUserNotificationSettings) {
-    var settings = app.currentUserNotificationSettings();
-    enabledTypes = settings.plusGetAttribute("types");
-    if (enabledTypes == 0) {
-      result = 0;
-      console.log("推送权限没有开启");
-    } else {
-      result = 1;
-      console.log("已经开启推送功能!");
-    }
-    plus.ios.deleteObject(settings);
-  } else {
-    enabledTypes = app.enabledRemoteNotificationTypes();
-    if (enabledTypes == 0) {
-      result = 3;
-      console.log("推送权限没有开启!");
-    } else {
-      result = 4;
-      console.log("已经开启推送功能!");
-    }
-  }
-  plus.ios.deleteObject(app);
-  plus.ios.deleteObject(UIApplication);
-  return result;
-}
-
-function contact() {
-  var result = 0;
-  var CNContactStore = plus.ios.import("CNContactStore");
-  var cnAuthStatus = CNContactStore.authorizationStatusForEntityType(0);
-  if (cnAuthStatus === 0) {
-    result = null;
-  } else if (cnAuthStatus == 3) {
-    result = 1;
-  } else {
-    result = 0;
-  }
-  plus.ios.deleteObject(CNContactStore);
-  return result;
-}
-
-function record() {
-  var result = null;
-  var avaudiosession = plus.ios.import("AVAudioSession");
-  var avaudio = avaudiosession.sharedInstance();
-  var status = avaudio.recordPermission();
-  console.log("permissionStatus:" + status);
-  if (status === 1970168948) {
-    result = null;
-  } else if (status === 1735552628) {
-    result = 1;
-  } else {
-    result = 0;
-  }
-  plus.ios.deleteObject(avaudiosession);
-  return result;
-}
-
-function calendar() {
-  var result = null;
-  var EKEventStore = plus.ios.import("EKEventStore");
-  var ekAuthStatus = EKEventStore.authorizationStatusForEntityType(0);
-  if (ekAuthStatus == 3) {
-    result = 1;
-    console.log("日历权限已经开启");
-  } else {
-    console.log("日历权限没有开启");
-  }
-  plus.ios.deleteObject(EKEventStore);
-  return result;
-}
-
-function memo() {
-  var result = null;
-  var EKEventStore = plus.ios.import("EKEventStore");
-  var ekAuthStatus = EKEventStore.authorizationStatusForEntityType(1);
-  if (ekAuthStatus == 3) {
-    result = 1;
-    console.log("备忘录权限已经开启");
-  } else {
-    console.log("备忘录权限没有开启");
-  }
-  plus.ios.deleteObject(EKEventStore);
-  return result;
-}
-
-
-function requestIOS(permissionID) {
-  return new Promise(function (resolve, reject) {
-    switch (permissionID) {
-      case "push":
-        resolve(push());
-        break;
-      case "location":
-        resolve(location());
-        break;
-      case "record":
-        resolve(record());
-        break;
-      case "camera":
-        resolve(camera());
-        break;
-      case "album":
-        resolve(album());
-        break;
-      case "contact":
-        resolve(contact());
-        break;
-      case "calendar":
-        resolve(calendar());
-        break;
-      case "memo":
-        resolve(memo());
-        break;
-      default:
-        resolve(0);
-        break;}
-
-  });
-}
-
-function requestAndroid(permissionID) {
-  return new Promise(function (resolve, reject) {
-    plus.android.requestPermissions(
-    [permissionID],
-    function (resultObj) {
-      var result = 0;
-      for (var i = 0; i < resultObj.granted.length; i++) {
-        var grantedPermission = resultObj.granted[i];
-        console.log('已获取的权限：' + grantedPermission);
-        result = 1;
-      }
-      for (var i = 0; i < resultObj.deniedPresent.length; i++) {
-        var deniedPresentPermission = resultObj.deniedPresent[i];
-        console.log('拒绝本次申请的权限：' + deniedPresentPermission);
-        result = 0;
-      }
-      for (var i = 0; i < resultObj.deniedAlways.length; i++) {
-        var deniedAlwaysPermission = resultObj.deniedAlways[i];
-        console.log('永久拒绝申请的权限：' + deniedAlwaysPermission);
-        result = -1;
-      }
-      resolve(result);
-    },
-    function (error) {
-      console.log('result error: ' + error.message);
-      resolve({
-        code: error.code,
-        message: error.message });
-
-    });
-
-  });
-}
-
-function gotoAppPermissionSetting() {
-  if (permission.isIOS) {
-    var UIApplication = plus.ios.import("UIApplication");
-    var application2 = UIApplication.sharedApplication();
-    var NSURL2 = plus.ios.import("NSURL");
-    var setting2 = NSURL2.URLWithString("app-settings:");
-    application2.openURL(setting2);
-    plus.ios.deleteObject(setting2);
-    plus.ios.deleteObject(NSURL2);
-    plus.ios.deleteObject(application2);
-  } else {
-    var Intent = plus.android.importClass("android.content.Intent");
-    var Settings = plus.android.importClass("android.provider.Settings");
-    var Uri = plus.android.importClass("android.net.Uri");
-    var mainActivity = plus.android.runtimeMainActivity();
-    var intent = new Intent();
-    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-    var uri = Uri.fromParts("package", mainActivity.getPackageName(), null);
-    intent.setData(uri);
-    mainActivity.startActivity(intent);
-  }
-}
-
-var permission = {
-  get isIOS() {
-    return typeof isIOS === 'boolean' ? isIOS : isIOS = uni.getSystemInfoSync().platform === 'ios';
-  },
-  requestIOS: requestIOS,
-  requestAndroid: requestAndroid,
-  gotoAppSetting: gotoAppPermissionSetting };
-
-
-module.exports = permission;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
 /***/ 4:
 /*!************************************************!*\
   !*** E:/hbuilderX项目/store_sale_uni/pages.json ***!
@@ -9862,6 +9642,263 @@ main();
 
 /***/ }),
 
+/***/ 55:
+/*!**********************************************************!*\
+  !*** E:/hbuilderX项目/store_sale_uni/common/permission.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) { /// null = 未请求，1 = 已允许，0 = 拒绝|受限, 2 = 系统未开启
+
+var isIOS;
+
+function album() {
+  var result = 0;
+  var PHPhotoLibrary = plus.ios.import("PHPhotoLibrary");
+  var authStatus = PHPhotoLibrary.authorizationStatus();
+  if (authStatus === 0) {
+    result = null;
+  } else if (authStatus == 3) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  plus.ios.deleteObject(PHPhotoLibrary);
+  return result;
+}
+
+function camera() {
+  var result = 0;
+  var AVCaptureDevice = plus.ios.import("AVCaptureDevice");
+  var authStatus = AVCaptureDevice.authorizationStatusForMediaType('vide');
+  if (authStatus === 0) {
+    result = null;
+  } else if (authStatus == 3) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  plus.ios.deleteObject(AVCaptureDevice);
+  return result;
+}
+
+function location() {
+  var result = 0;
+  var cllocationManger = plus.ios.import("CLLocationManager");
+  var enable = cllocationManger.locationServicesEnabled();
+  var status = cllocationManger.authorizationStatus();
+  if (!enable) {
+    result = 2;
+  } else if (status === 0) {
+    result = null;
+  } else if (status === 3 || status === 4) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  plus.ios.deleteObject(cllocationManger);
+  return result;
+}
+
+function push() {
+  var result = 0;
+  var UIApplication = plus.ios.import("UIApplication");
+  var app = UIApplication.sharedApplication();
+  var enabledTypes = 0;
+  if (app.currentUserNotificationSettings) {
+    var settings = app.currentUserNotificationSettings();
+    enabledTypes = settings.plusGetAttribute("types");
+    if (enabledTypes == 0) {
+      result = 0;
+      console.log("推送权限没有开启");
+    } else {
+      result = 1;
+      console.log("已经开启推送功能!");
+    }
+    plus.ios.deleteObject(settings);
+  } else {
+    enabledTypes = app.enabledRemoteNotificationTypes();
+    if (enabledTypes == 0) {
+      result = 3;
+      console.log("推送权限没有开启!");
+    } else {
+      result = 4;
+      console.log("已经开启推送功能!");
+    }
+  }
+  plus.ios.deleteObject(app);
+  plus.ios.deleteObject(UIApplication);
+  return result;
+}
+
+function contact() {
+  var result = 0;
+  var CNContactStore = plus.ios.import("CNContactStore");
+  var cnAuthStatus = CNContactStore.authorizationStatusForEntityType(0);
+  if (cnAuthStatus === 0) {
+    result = null;
+  } else if (cnAuthStatus == 3) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  plus.ios.deleteObject(CNContactStore);
+  return result;
+}
+
+function record() {
+  var result = null;
+  var avaudiosession = plus.ios.import("AVAudioSession");
+  var avaudio = avaudiosession.sharedInstance();
+  var status = avaudio.recordPermission();
+  console.log("permissionStatus:" + status);
+  if (status === 1970168948) {
+    result = null;
+  } else if (status === 1735552628) {
+    result = 1;
+  } else {
+    result = 0;
+  }
+  plus.ios.deleteObject(avaudiosession);
+  return result;
+}
+
+function calendar() {
+  var result = null;
+  var EKEventStore = plus.ios.import("EKEventStore");
+  var ekAuthStatus = EKEventStore.authorizationStatusForEntityType(0);
+  if (ekAuthStatus == 3) {
+    result = 1;
+    console.log("日历权限已经开启");
+  } else {
+    console.log("日历权限没有开启");
+  }
+  plus.ios.deleteObject(EKEventStore);
+  return result;
+}
+
+function memo() {
+  var result = null;
+  var EKEventStore = plus.ios.import("EKEventStore");
+  var ekAuthStatus = EKEventStore.authorizationStatusForEntityType(1);
+  if (ekAuthStatus == 3) {
+    result = 1;
+    console.log("备忘录权限已经开启");
+  } else {
+    console.log("备忘录权限没有开启");
+  }
+  plus.ios.deleteObject(EKEventStore);
+  return result;
+}
+
+
+function requestIOS(permissionID) {
+  return new Promise(function (resolve, reject) {
+    switch (permissionID) {
+      case "push":
+        resolve(push());
+        break;
+      case "location":
+        resolve(location());
+        break;
+      case "record":
+        resolve(record());
+        break;
+      case "camera":
+        resolve(camera());
+        break;
+      case "album":
+        resolve(album());
+        break;
+      case "contact":
+        resolve(contact());
+        break;
+      case "calendar":
+        resolve(calendar());
+        break;
+      case "memo":
+        resolve(memo());
+        break;
+      default:
+        resolve(0);
+        break;}
+
+  });
+}
+
+function requestAndroid(permissionID) {
+  return new Promise(function (resolve, reject) {
+    plus.android.requestPermissions(
+    [permissionID],
+    function (resultObj) {
+      var result = 0;
+      for (var i = 0; i < resultObj.granted.length; i++) {
+        var grantedPermission = resultObj.granted[i];
+        console.log('已获取的权限：' + grantedPermission);
+        result = 1;
+      }
+      for (var i = 0; i < resultObj.deniedPresent.length; i++) {
+        var deniedPresentPermission = resultObj.deniedPresent[i];
+        console.log('拒绝本次申请的权限：' + deniedPresentPermission);
+        result = 0;
+      }
+      for (var i = 0; i < resultObj.deniedAlways.length; i++) {
+        var deniedAlwaysPermission = resultObj.deniedAlways[i];
+        console.log('永久拒绝申请的权限：' + deniedAlwaysPermission);
+        result = -1;
+      }
+      resolve(result);
+    },
+    function (error) {
+      console.log('result error: ' + error.message);
+      resolve({
+        code: error.code,
+        message: error.message });
+
+    });
+
+  });
+}
+
+function gotoAppPermissionSetting() {
+  if (permission.isIOS) {
+    var UIApplication = plus.ios.import("UIApplication");
+    var application2 = UIApplication.sharedApplication();
+    var NSURL2 = plus.ios.import("NSURL");
+    var setting2 = NSURL2.URLWithString("app-settings:");
+    application2.openURL(setting2);
+    plus.ios.deleteObject(setting2);
+    plus.ios.deleteObject(NSURL2);
+    plus.ios.deleteObject(application2);
+  } else {
+    var Intent = plus.android.importClass("android.content.Intent");
+    var Settings = plus.android.importClass("android.provider.Settings");
+    var Uri = plus.android.importClass("android.net.Uri");
+    var mainActivity = plus.android.runtimeMainActivity();
+    var intent = new Intent();
+    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+    var uri = Uri.fromParts("package", mainActivity.getPackageName(), null);
+    intent.setData(uri);
+    mainActivity.startActivity(intent);
+  }
+}
+
+var permission = {
+  get isIOS() {
+    return typeof isIOS === 'boolean' ? isIOS : isIOS = uni.getSystemInfoSync().platform === 'ios';
+  },
+  requestIOS: requestIOS,
+  requestAndroid: requestAndroid,
+  gotoAppSetting: gotoAppPermissionSetting };
+
+
+module.exports = permission;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 6:
 /*!******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
@@ -9881,44 +9918,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/main/main": { "navigationBarTitleText": "", "navigationBarBackgroundColor": "#d81e06", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/updatebrand": { "navigationBarTitleText": "品牌更新", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/addbrand": { "navigationBarTitleText": "新增品牌", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/categoryEdit": { "navigationBarTitleText": "分类管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/user/user": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/order/orderEdit": { "navigationBarTitleText": "订单管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/login/login": { "navigationBarTitleText": "商家登录", "usingComponents": { "m-input": "/components/m-input" }, "usingAutoImportComponents": {} }, "pages/reg/reg": { "navigationBarTitleText": "注册", "usingComponents": { "m-input": "/components/m-input" }, "usingAutoImportComponents": {} }, "pages/pwd/pwd": { "navigationBarTitleText": "找回密码", "usingComponents": { "m-input": "/components/m-input" }, "usingAutoImportComponents": {} }, "pages/goods/goodsEdit": { "navigationBarTitleText": "商品管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/parameter/parameterEdit": { "navigationBarTitleText": "属性管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/refund/refundEdit": { "navigationBarTitleText": "退款管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/logistics/logisticsEdit": { "navigationBarTitleText": "物流管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/shop/shopEdit": { "navigationBarTitleText": "店铺管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/cardticket/cardticketEdit": { "navigationBarTitleText": "卡券管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/brandEdit": { "navigationBarTitleText": "品牌管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/addcategory": { "navigationBarTitleText": "添加分类", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/updatecategory": { "navigationBarTitleText": "分类更新", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#d81e06", "backgroundColor": "#FFFFFF" } };exports.default = _default;
-
-/***/ }),
-
-/***/ 72:
-/*!************************************************!*\
-  !*** E:/hbuilderX项目/store_sale_uni/service.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; // 管理账号信息
-var USERS_KEY = 'USERS_KEY';
-var STATE_KEY = 'STATE_KEY';
-
-var getUsers = function getUsers() {
-  var ret = '';
-  ret = uni.getStorageSync(USERS_KEY);
-  if (!ret) {
-    ret = '[]';
-  }
-  return JSON.parse(ret);
-};
-
-var addUser = function addUser(userInfo) {
-  var users = getUsers();
-  users.push({
-    account: userInfo.account,
-    password: userInfo.password });
-
-  uni.setStorageSync(USERS_KEY, JSON.stringify(users));
-};var _default =
-
-{
-  getUsers: getUsers,
-  addUser: addUser };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/main/main": { "navigationBarTitleText": "", "navigationBarBackgroundColor": "#d81e06", "navigationBarTextStyle": "white", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/addgoods": { "navigationBarTitleText": "添加商品", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/goods/goodsEdit": { "navigationBarTitleText": "商品管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/brandEdit": { "navigationBarTitleText": "品牌管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/updatebrand": { "navigationBarTitleText": "品牌更新", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/brand/addbrand": { "navigationBarTitleText": "新增品牌", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/categoryEdit": { "navigationBarTitleText": "分类管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/addcategory": { "navigationBarTitleText": "添加分类", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/category/updatecategory": { "navigationBarTitleText": "分类更新", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/user/user": { "navigationBarTitleText": "我的", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/order/orderEdit": { "navigationBarTitleText": "订单管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/login/login": { "navigationBarTitleText": "商家登录" }, "pages/reg/reg": { "navigationBarTitleText": "注册" }, "pages/pwd/pwd": { "navigationBarTitleText": "找回密码" }, "pages/parameter/parameterEdit": { "navigationBarTitleText": "属性管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/refund/refundEdit": { "navigationBarTitleText": "退款管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/logistics/logisticsEdit": { "navigationBarTitleText": "物流管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/shop/shopEdit": { "navigationBarTitleText": "店铺管理", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/cardticket/cardticketEdit": { "navigationBarTitleText": "卡券管理", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "white", "navigationBarBackgroundColor": "#d81e06", "backgroundColor": "#FFFFFF" } };exports.default = _default;
 
 /***/ }),
 

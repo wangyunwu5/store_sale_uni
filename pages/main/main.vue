@@ -147,7 +147,7 @@
 				this_month_scan:'451422',
 				this_year_order:'6231',
 				this_year_money:'98221',
-				this_year_scan:'842534'
+				
 			}
 		},
         computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
@@ -155,6 +155,10 @@
 			this.getInfo();
 		},
         onLoad() {
+			const arr1 = { a:1 ,b:2 };
+			const arr2 = { a:2, c:3 };
+			arr1 = {...arr2};
+			console.log(arr1);
             /* if (!this.hasLogin) {
                 uni.showModal({
                     title: '未登录',
@@ -181,7 +185,13 @@
 			
         },
 		 methods:{
-			 getInfo(){
+			 getInfo(){	
+				 
+				 
+				 
+				 
+				 
+				 
 				 if(this.todaymoney >=100000000.00){
 				 	this.todaymoney=0;
 				 }

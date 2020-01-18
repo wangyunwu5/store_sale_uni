@@ -273,159 +273,94 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _vuex = __webpack_require__(/*! vuex */ 16); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { todaymoney: 0.50, allscan: '666885', alllove: '2342', allorder: '2356', allmoney: '189902.00', no_receive_order: '10', no_fahuo_order: '16', no_service_order: '31', this_month_order: '600', this_month_money: '5242', this_month_scan: '451422', this_year_order: '6231', this_year_money: '98221', this_year_scan: '842534' };}, computed: (0, _vuex.mapState)(['forcedLogin', 'hasLogin', 'userName']), onShow: function onShow() {this.getInfo();}, onLoad: function onLoad() {/* if (!this.hasLogin) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         uni.showModal({
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             title: '未登录',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             content: '您未登录，需要登录后才能继续',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              //如果需要强制登录，不显示取消按钮
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             showCancel: !this.forcedLogin,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             success: (res) => {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 if (res.confirm) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     //如果需要强制登录，使用reLaunch方式
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     if (this.forcedLogin) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         uni.reLaunch({
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             url: '../login/login'
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         uni.navigateTo({
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             url: '../login/login'
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     } */}, methods: { getInfo: function getInfo() {var _this = this;if (this.todaymoney >= 100000000.00) {this.todaymoney = 0;} else {this.todaymoney += 5.55;}setTimeout(function () {_this.getInfo();}, 6000);}, navigateToNewVue: function navigateToNewVue(url1, url2) {if (url1 === 'order') {uni.switchTab({ //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
-          url: "../".concat(url1, "/").concat(url2) });} else {uni.navigateTo({ //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
-          /* url:'../'+url1+'/'+url2 */url: "../".concat(url1, "/").concat(url2) //es6
-        });}} } };exports.default = _default;
+var _vuex = __webpack_require__(/*! vuex */ 16);function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _readOnlyError(name) {throw new Error("\"" + name + "\" is read-only");}var _default =
+
+
+
+{
+  data: function data() {
+    return {
+      todaymoney: 0.50,
+      allscan: '666885',
+      alllove: '2342',
+      allorder: '2356',
+      allmoney: '189902.00',
+      no_receive_order: '10',
+      no_fahuo_order: '16',
+      no_service_order: '31',
+      this_month_order: '600',
+      this_month_money: '5242',
+      this_month_scan: '451422',
+      this_year_order: '6231',
+      this_year_money: '98221' };
+
+
+  },
+  computed: (0, _vuex.mapState)(['forcedLogin', 'hasLogin', 'userName']),
+  onShow: function onShow() {
+    this.getInfo();
+  },
+  onLoad: function onLoad() {
+    var arr1 = { a: 1, b: 2 };
+    var arr2 = { a: 2, c: 3 };
+    arr1 = (_readOnlyError("arr1"), _objectSpread({}, arr2));
+    console.log(arr1);
+    /* if (!this.hasLogin) {
+                           uni.showModal({
+                               title: '未登录',
+                               content: '您未登录，需要登录后才能继续',
+                                //如果需要强制登录，不显示取消按钮
+                               showCancel: !this.forcedLogin,
+                               success: (res) => {
+                                   if (res.confirm) {
+                       //如果需要强制登录，使用reLaunch方式
+                                       if (this.forcedLogin) {
+                                           uni.reLaunch({
+                                               url: '../login/login'
+                                           });
+                                       } else {
+                                           uni.navigateTo({
+                                               url: '../login/login'
+                                           });
+                                       }
+                                   }
+                               }
+                           });
+                       } */
+
+
+  },
+  methods: {
+    getInfo: function getInfo() {var _this = this;
+
+
+
+
+
+
+      if (this.todaymoney >= 100000000.00) {
+        this.todaymoney = 0;
+      } else
+      {
+        this.todaymoney += 5.55;
+      }
+      setTimeout(function () {
+        _this.getInfo();
+      }, 6000);
+    },
+    navigateToNewVue: function navigateToNewVue(url1, url2) {
+      if (url1 === 'order') {
+        uni.switchTab({ //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
+          url: "../".concat(url1, "/").concat(url2) });
+
+      } else
+      {
+        uni.navigateTo({ //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
+          /* url:'../'+url1+'/'+url2 */
+          url: "../".concat(url1, "/").concat(url2) //es6
+        });
+      }
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

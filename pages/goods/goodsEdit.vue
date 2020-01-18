@@ -5,14 +5,15 @@
 				<text class="uni-tab-item-title" :class="tabIndex==index ? 'uni-tab-item-title-active' : ''">{{tab.name}}</text>
 			</view>
 		</scroll-view>
+		<view class="addgoods" @tap="addgoods">添加商品</view>
 		<view class="line-h"></view>
 		<swiper :current="tabIndex" class="swiper-box" :duration="300" @change="ontabchange">
 			<swiper-item  class="swiper-item" v-for="(tab,index) in newsList" :key="index">
 				<scroll-view scroll-y class="navigation">
-					<view :class="['nav_item',items.active==true ? 'nav_item_active' : '']" v-for="(item,index) in goodsType" :key="index"
+					<view :class="['nav_item',item.active==true ? 'nav_item_active' : '']" v-for="(item,index) in goodsType" :key="index"
 					 @tap="goodsTypeTap(index)">{{item.name}}</view>
 				</scroll-view>
-				<scroll-view scroll-y class="content">
+				<scroll-view scroll-y class="inner-content">
 					<view class="condition"></view>
 					<block v-for="(goods,index) in goodslist" :key="index">
 						<view class="content_item">
@@ -39,8 +40,13 @@
 	export default {
 		data() {
 			return {
+				sizeCalcState:false,
+				currentId:1,
 				newsList: [],
 				tabIndex: 0,
+				title:'全部',
+				dataGoods:[],
+				data:[],
 				hasOrder: true,
 				tabBars: [{
 					name: '出售中',
@@ -113,10 +119,12 @@
 				this.getList(0);
 			}, 350)
 		},
-		onShow: function() {},
-		onUnload: function() {},
-		onReachBottom: function() {},
 		methods: {
+			addgoods(){
+				uni.navigateTo({
+					url:'./addgoods'
+				})
+			},
 			ontabtap(e) {
 				let index = e.target.dataset.current || e.currentTarget.dataset.current;
 				this.switchTab(index);
@@ -169,6 +177,24 @@
 					tab.refreshFlag = false;
 					tab.refreshText = "下拉可以刷新";
 				}
+			},
+			//左边导航栏点击
+			goodsTypeTap(index){
+				for(let i in this.goodsType){
+					this.goodsType[i].active=false;
+				}
+				this.dataGoods=[];
+				this.goodsType[index].active=true;
+				this.title=this.goodsType[index].name;
+				if(this.title=='全部')
+					this.dataGoods=this.data
+				else{
+					for(let i in this.data){
+						if(this.data[i].goodsType==this.title){
+							this.dataGoods.push(this.data[i])
+						}
+					}
+				}
 			}
 		}
 	}
@@ -219,16 +245,19 @@
 
 	.swiper-item {
 		background-color: #EEEEEE;
+		display: flex;
 	}
 
 	.navigation {
-		position: fixed;
+		/* position: fixed;
 		top: 0;
 		bottom: 0;
-		left: 0;
+		left: 0; */
+		display: flex;
+		flex-direction: column;
 		width: 160rpx;
-		border-right: 1rpx solid #EEEEEE;
-		overflow: auto;
+		height: 100%;
+		border: 1rpx solid #EEEEEE;
 		background-color: white;
 		height: 100%;
 	}
@@ -243,33 +272,41 @@
 		color: #666666;
 		background-color: white;
 	}
-
+	
 	.nav_item_active {
-		border-left: 5rpx solid #333333;
-		width: 174rpx;
-		font-size: 26rpx;
+		width: 160rpx;
+		font-size: 22rpx;
 		background-color: #F5F5F5;
-		color: black;
+		color: #d81e06;
+	}
+	.addgoods{
+		height: 80rpx;
+		line-height: 80rpx;
+		text-align: center;
+		width: 160rpx;
+		position: absolute;
+		background-color: #d81e06;
+		color: #FFFFFF;
+		font-size: 25rpx;
+		border-radius: 8rpx;
+		left: 0;
+		bottom: 0;
+		z-index: 2;
 	}
 
-
-
-	.content {
-		width: 590rpx;
-		min-height: 100rpx;
-		padding-left: 160rpx;
+	.inner-content {
 		display: flex;
+		flex: 1;
 		background-color: #EEEEEE;
-		overflow-y: scroll;
-		overflow-x: overlay;
 		height: 100%;
+		padding: 1rpx;
 	}
 
 	.content_item {
 		height: 200rpx;
 		background-color: #FFFFFF;
 		border-radius: 8rpx;
-		margin: 5rpx;
+		margin-bottom: 5rpx;
 	}
 	.item-up{
 		height: 160rpx;

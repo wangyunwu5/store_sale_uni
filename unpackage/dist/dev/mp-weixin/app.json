@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/goods/goodsEdit",
     "pages/main/main",
+    "pages/goods/addgoods",
+    "pages/goods/goodsEdit",
     "pages/brand/brandEdit",
     "pages/brand/updatebrand",
     "pages/brand/addbrand",
@@ -53,5 +54,6 @@
   "usingComponents": {
     "countup": "/components/countUp/countUp",
     "textscroll": "/components/screenTextScroll/screenTextScroll"
-  }
+  },
+  "sitemapLocation": "sitemap93.json"
 }

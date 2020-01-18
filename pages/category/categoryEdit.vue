@@ -98,7 +98,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.this_content{
 		display: flex;
 		flex: 1;
@@ -115,10 +115,10 @@
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 5rpx solid #efeff4;
-	}
-	.param_item>text{
-		font-size: 20rpx;
-		min-width: 10rpx;
+		text{
+			font-size: 20rpx;
+			min-width: 10rpx;
+		}
 	}
 	.param_icon {
 		width: 50rpx;

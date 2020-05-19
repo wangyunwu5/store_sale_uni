@@ -18,18 +18,30 @@
 			<view class="line"></view>
 			<view class="content-item">
 				<text>销售属性</text>
-				<image class="image1" src="../../static/img/add.png"></image>
+				<image @click="addvalue" class="image1" src="../../static/img/add.png"></image>
 			</view>
 			<view class="saleparam">
-				<block v-for="(param,index) in 20" :key="index">
+				<block v-for="(param,index) in paramlist" :key="index">
 					<view class="list-item">
 						<view class="sale-param-name">
 							<text>属性名:{{param.name}}</text>
 							<view class="param-sort">
 								<text>序号</text>
-								<input type="text" placeholder="序号" />
+								<input type="text" placeholder="--" />
 							</view>
-							<text style="color: #d81e06;">添加属性值</text>
+							<text @click="bindClick('4')" style="color: #d81e06;">添加属性值</text>
+							<neil-modal :show="show4" @close="closeModal('4')" title="请输入用户名密码">
+							    <view class="input-view">
+							        <view class="input-name">
+							            <view>用户名</view>
+							            <input type="text" placeholder="请输入用户名" />
+							        </view>
+							        <view class="input-password">
+							            <view>密码</view>
+							            <input type="text" password placeholder="请输入密码" />
+							        </view>
+							    </view>
+							</neil-modal>
 						</view>
 						<view class="line"></view>
 						<view class="sale-param-value">
@@ -54,14 +66,14 @@
 				<text>其他属性</text>
 				<image class="image1" src="../../static/img/add.png"></image>
 			</view>
-		<!-- 		<view class="content-item">
+			<view class="content-item">
 				<text>轮播图</text>
 				<image class="image1" src="../../static/img/add.png"></image>
 			</view>
 			<view class="content-item luobo">
 				<view class="luobo-item">
 					<image class="image2" src="../../static/img/phone11_promax.jpg"></image>
-					<input type="number" placeholder="请输入序号"/>
+					<input type="number" placeholder="请输入序号" />
 					<image class="delete" src="../../static/img/delete.png"></image>
 				</view>
 			</view>
@@ -72,8 +84,8 @@
 			<view class="content-item luobo">
 				<view class="luobo-item">
 					<image class="image2" src="../../static/img/phone11_promax.jpg"></image>
-					<input type="number" placeholder="请输入序号"/>
-					<image class="delete"   src="../../static/img/delete.png"></image>
+					<input type="number" placeholder="请输入序号" />
+					<image class="delete" src="../../static/img/delete.png"></image>
 				</view>
 			</view>
 			<view class="content-item">
@@ -83,18 +95,24 @@
 				<textarea class="describe" placeholder="请输入文字"></textarea>
 			</view>
 			<view class="content-item">
-			</view> -->
+			</view>
 		</scroll-view>
 		<view class="btn">
-			<text>下一步</text>
+			<text @click="nextstap">下一步</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	import neilModal from '../../components/neil-modal/neil-modal.vue'
 	export default {
+		components: {
+		    neilModal
+		},
 		data() {
 			return {
+				show4: false,
+				content: '',
 				paramlist: [{
 					id: 1,
 					name: '颜色',
@@ -133,6 +151,36 @@
 						value: '128G'
 					}]
 				}]
+			}
+		},
+		onLoad: function(option) {},
+		methods: {
+			/**添加属性值，弹出框 */
+			addvalue() {
+				uni.showToast({
+					title:'添加属性'
+				});
+			   /* console.log(this[`show${type}`])
+			    this[`show${type}`] = true
+			    console.log(this[`show${type}`]) */
+			},
+			bindClick(type) {
+				uni.showToast({
+					title:'添加属性值'
+				});
+			    console.log(this[`show${type}`])
+			    this[`show${type}`] = true
+			    console.log(this[`show${type}`]) 
+			},
+			/** 回退弹窗取消方法 */
+			closeModal(type) {
+			    console.log(`监听到close`)
+			    this[`show${type}`] = false
+			},
+			nextstap(){
+				uni.showToast({
+					title:'下一步'
+				})
 			}
 		}
 	}
@@ -314,5 +362,49 @@
 		font-size: 20rpx;
 		background-color: #d81e06;
 		color: #FFFFFF;
+	}
+
+	/* 提示窗口 */
+	.uni-tip {
+		padding: 15px;
+		width: 300px;
+		background: #fff;
+		box-sizing: border-box;
+		border-radius: 10px;
+	}
+
+	.uni-tip-title {
+		text-align: center;
+		font-weight: bold;
+		font-size: 16px;
+		color: #333;
+		text-align: left;
+	}
+
+	.uni-tip-content {
+		padding: 15px;
+		font-size: 14px;
+		color: #666;
+		/* background: #C8C7CC; */
+		border: 2upx solid #ccc;
+		border-radius: 10upx;
+	}
+
+	.uni-tip-content-textarea {
+		height: 300upx;
+		width: 100%;
+		text-align: left;
+	}
+
+	.uni-tip-group-button {
+		margin-top: 10px;
+		display: flex;
+	}
+
+	.uni-tip-group-button>button {
+		font-size: 24upx;
+		height: 40upx;
+		line-height: 40upx;
+
 	}
 </style>

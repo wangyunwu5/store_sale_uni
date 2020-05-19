@@ -95,7 +95,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  "neil-modal": () =>
+    __webpack_require__.e(/*! import() | components/neil-modal/neil-modal */ "components/neil-modal/neil-modal").then(__webpack_require__.bind(null, /*! @/components/neil-modal/neil-modal.vue */ 173))
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -133,103 +136,121 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var neilModal = function neilModal() {return __webpack_require__.e(/*! import() | components/neil-modal/neil-modal */ "components/neil-modal/neil-modal").then(__webpack_require__.bind(null, /*! ../../components/neil-modal/neil-modal.vue */ 173));};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    neilModal: neilModal },
+
   data: function data() {
     return {
+      show4: false,
+      content: '',
       paramlist: [{
         id: 1,
         name: '颜色',
@@ -269,7 +290,37 @@ var _default =
 
 
 
-  } };exports.default = _default;
+  },
+  onLoad: function onLoad(option) {},
+  methods: {
+    /**添加属性值，弹出框 */
+    addvalue: function addvalue() {
+      uni.showToast({
+        title: '添加属性' });
+
+      /* console.log(this[`show${type}`])
+                           this[`show${type}`] = true
+                           console.log(this[`show${type}`]) */
+    },
+    bindClick: function bindClick(type) {
+      uni.showToast({
+        title: '添加属性值' });
+
+      console.log(this["show".concat(type)]);
+      this["show".concat(type)] = true;
+      console.log(this["show".concat(type)]);
+    },
+    /** 回退弹窗取消方法 */
+    closeModal: function closeModal(type) {
+      console.log("\u76D1\u542C\u5230close");
+      this["show".concat(type)] = false;
+    },
+    nextstap: function nextstap() {
+      uni.showToast({
+        title: '下一步' });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

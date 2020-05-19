@@ -210,3 +210,43 @@
 	color: #FFFFFF;
 }
 
+/* 提示窗口 */
+.uni-tip {
+	padding: 15px;
+	width: 300px;
+	background: #fff;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+.uni-tip-title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+	text-align: left;
+}
+.uni-tip-content {
+	padding: 15px;
+	font-size: 14px;
+	color: #666;
+	/* background: #C8C7CC; */
+	border: 2rpx solid #ccc;
+	border-radius: 10rpx;
+}
+.uni-tip-content-textarea {
+	height: 300rpx;
+	width: 100%;
+	text-align: left;
+}
+.uni-tip-group-button {
+	margin-top: 10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.uni-tip-group-button>button {
+	font-size: 24rpx;
+	height: 40rpx;
+	line-height: 40rpx;
+}
+
